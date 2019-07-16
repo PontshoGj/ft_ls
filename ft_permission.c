@@ -2,7 +2,6 @@
 
 char    *ft_permission(char *filename)
 {
-    struct stat fileStat;
     char *str;
 
     str = malloc(sizeof(char) * 11);

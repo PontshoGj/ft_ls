@@ -16,7 +16,10 @@ void    ft_printdir(char *str, char *flag)
             {
                 s = dir->d_name;
                 if (s[0] != '.')
-                    printf("%s\t%d\t%d\t%s\t%s\n", ft_permission(s), ft_filelink(s), ft_filesize(s), ft_filetimes(s), s);
+                {     
+                    //printf("%s\t%d\t%s\t%d\t%s\t%s\n", ft_permission(s), ft_filelink(s), ft_filename(s), ft_filesize(s), ft_filetimes(s), s);
+                    printf("%s\n", ft_joinfiled(s));
+                }
             }
             closedir(d);
         }
