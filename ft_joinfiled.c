@@ -11,11 +11,10 @@ char    *ft_joinfiled(char *str)
     s = ft_strcat(s, "\t");
     s = ft_strcat(s, ft_filename(str));
     s = ft_strcat(s, "\t");
-    printf("%d", ft_filesize(str));
- //   s = ft_strcat(s, ft_itoa(ft_filesize(str)));
-//    s = ft_strcat(s, "\t");
-//    s = ft_strcat(s, ft_filename(str));
- //   s = ft_strcat(s, "\t");
-//    s = ft_strcat(s, str);
+    s = ft_strjoin(s, ft_itoa(ft_filesize(str)));
+    s = ft_strcat(s, "\t");
+    s = ft_strcat(s, ft_filetimes(str));
+    s = ft_strcat(s, "\t");
+    s = ft_strcat(s, str);
     return (s);
 }
