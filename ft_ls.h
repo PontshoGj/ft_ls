@@ -13,5 +13,5 @@ struct stat fileStat;
 char    *ft_permission(char *filename);
 int     ft_filelink(char *str);
 int     ft_filesize(char *str);
-char        *filetime(char *str);
+char    *ft_filetimes(char *str);
 #endif
