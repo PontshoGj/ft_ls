@@ -18,4 +18,5 @@ int     ft_filesize(char *str);
 char    *ft_filetimes(char *str);
 char    *ft_filename(char *str);
 char    *ft_joinfiled(char *str);
+void	ft_dellst(void *elem, size_t size);
 #endif
