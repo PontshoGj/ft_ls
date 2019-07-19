@@ -6,7 +6,8 @@ CFLAGS=-Wall -Wextra -Werror -c -I .
 
 RM=rm -f
 
-SRC=ft_dellst.c ft_filesize.c ft_filetimes.c ft_filename.c ft_joinfiled.c ft_rdirec.c ft_permission.c ft_filelink.c
+SRC=ft_dellst.c ft_filesize.c ft_filetimes.c ft_filename.c ft_joinfiled.c ft_display_recursive.c ft_permission.c ft_filelink.c \
+	ft_display_all.c ft_display_long.c ft_display_long_all.c \
 
 OBJ=$(SRC:.c=.o)
 

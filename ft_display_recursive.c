@@ -19,7 +19,7 @@ t_list      *newlst(char *str)
     return (elem);
 }
 
-void  dirlist(const char *str)
+void  ft_display_recursive(const char *str)
 {
     DIR *d;
     struct dirent *dir;
@@ -42,12 +42,12 @@ void  dirlist(const char *str)
                 continue;
             if (dir->d_type == DT_DIR && ft_strcmp(dir->d_name , ".") != 0 && ft_strcmp(dir->d_name, "..") != 0)
             {
-	    s = "";    
-	    s = ft_strjoin(s, str);
-	    s = ft_strcat(s, "/");
-	    s = ft_strjoin(s, dir->d_name);
-	    ft_lstadd(&ss, newlst(s));
-	    }
+	            s = "";    
+	            s = ft_strjoin(s, str);
+	            s = ft_strcat(s, "/");
+	            s = ft_strjoin(s, dir->d_name);
+	            ft_lstadd(&ss, newlst(s));
+	        }
 	    printf("%s\t", dir->d_name);
         }
         closedir(d);
@@ -55,9 +55,9 @@ void  dirlist(const char *str)
     printf("\n\n");
     while (ss->next != 0)
     {
-        dirlist((const char *)ss->content);
-//        printf("\n");
-	ss = ss->next;
+        ft_display_recursive((const char *)ss->content);
+        printf("\n");
+	    ss = ss->next;
     }
 }
 
