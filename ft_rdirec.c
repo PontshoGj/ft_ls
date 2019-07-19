@@ -41,32 +41,23 @@ void  dirlist(const char *str)
             if (s[0] == '.')
                 continue;
             if (dir->d_type == DT_DIR && ft_strcmp(dir->d_name , ".") != 0 && ft_strcmp(dir->d_name, "..") != 0)
-            {    
+            {
+	    s = "";    
 	    s = ft_strjoin(s, str);
 	    s = ft_strcat(s, "/");
 	    s = ft_strjoin(s, dir->d_name);
 	    ft_lstadd(&ss, newlst(s));
 	    }
+	    printf("%s\t", dir->d_name);
         }
         closedir(d);
     }
-    if (ss->next != 0)
-        printf("\n\n");
+    printf("\n\n");
     while (ss->next != 0)
     {
         dirlist((const char *)ss->content);
-        ss = ss->next;
+//        printf("\n");
+	ss = ss->next;
     }
 }
 
-int main(int argc, char **argv) {
-    if (argc == 1)
-        dirlist(".");
-    else
-    {
-        (void)argc;
-        dirlist(argv[1]);
-    }
-    printf("\n");
-    return 0;
-}

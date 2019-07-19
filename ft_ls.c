@@ -16,7 +16,7 @@ void    ft_printdir(char *str, char *flag)
             {
                 s = dir->d_name;
                 if (s[0] != '.')
-                    printf("%s\n", ft_joinfiled(s));
+			printf("%s\n", ft_joinfiled(s));
             }
             closedir(d);
         }
