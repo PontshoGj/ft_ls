@@ -19,7 +19,7 @@ t_list      *newlst(char *str)
     return (elem);
 }
 
-void  dirlist(const char *str, const char *string)
+void  dirlist(const char *str)
 {
     DIR *d;
     struct dirent *dir;
@@ -34,15 +34,19 @@ void  dirlist(const char *str, const char *string)
     ss = ft_lstnew(0, 0);
     if (d)
     {
-        //printf("%s\n", str);
+        printf("%s\n", str);
         while ((dir = readdir(d)) != 0)
         {
             s = dir->d_name;
             if (s[0] == '.')
                 continue;
-            if (dir->d_type == DT_DIR && ft_strcmp(s , ".") != 0 && ft_strcmp(s, "..") != 0)
-                ft_lstadd(&ss, newlst(s));
-            //printf("%s\t", dir->d_name);
+            if (dir->d_type == DT_DIR && ft_strcmp(dir->d_name , ".") != 0 && ft_strcmp(dir->d_name, "..") != 0)
+            {    
+	    s = ft_strjoin(s, str);
+	    s = ft_strcat(s, "/");
+	    s = ft_strjoin(s, dir->d_name);
+	    ft_lstadd(&ss, newlst(s));
+	    }
         }
         closedir(d);
     }
@@ -50,28 +54,18 @@ void  dirlist(const char *str, const char *string)
         printf("\n\n");
     while (ss->next != 0)
     {
-        printf("\n%s\n", string);
-        s = (char *)str;
-        if (ft_strcmp(str, "."))
-        {
-            s = ft_strcat(s, "/");
-            s = ft_strcat(s, ss->content);
-        }
-        else
-            s = ss->content;
-        dirlist((const char *)s, string);
-        //str = (char *)str2;
+        dirlist((const char *)ss->content);
         ss = ss->next;
     }
 }
 
 int main(int argc, char **argv) {
     if (argc == 1)
-        dirlist(".", "a");
+        dirlist(".");
     else
     {
         (void)argc;
-        dirlist(argv[1], argv[1]);
+        dirlist(argv[1]);
     }
     printf("\n");
     return 0;
