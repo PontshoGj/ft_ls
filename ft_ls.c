@@ -76,7 +76,7 @@ int main(int argc, char **argv)
             }
             i++;
         }
-        ft_printdir(".", s);
+        ft_printdir("..", s);
         //ft_printdir(argv[1], 0);
     }
     //sleep(90);

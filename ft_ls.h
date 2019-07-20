@@ -23,4 +23,5 @@ void    ft_display_recursive(const char *str);
 void    ft_display_all(char *str);
 void    ft_display_long(char *str);
 void    ft_display_long_all(char *str);
+void    ft_display_dir(char *str);
 #endif
