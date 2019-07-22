@@ -1,6 +1,6 @@
 #include "ft_ls.h"
 
-char    *ft_joinfiled(char *str)
+char    *ft_display_longs(char *str)
 {
     char *s;
     
@@ -17,4 +17,27 @@ char    *ft_joinfiled(char *str)
     s = ft_strcat(s, "\t");
     s = ft_strcat(s, str);
     return (s);
+}
+
+
+void    ft_joinfiled(char *str, char *flag)
+{
+    DIR *d;
+    struct dirent *dir;
+    char *s;
+
+    s = 0;
+    d = opendir(str);
+    if (d)
+    {
+        while ((dir = readdir(d)) != 0)
+        {
+            s = dir->d_name;
+            if (s[0] != '.' || ft_strcmp(flag, ".") == 0)
+            {
+			    printf("%s\n", ft_display_longs(dir->d_name));
+            }
+        }
+        closedir(d);
+    }
 }

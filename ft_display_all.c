@@ -15,7 +15,7 @@ void    ft_display_all(char *str)
             s = dir->d_name;
 			printf("%s\t", s);
         }
-        ft_putchar('\n');
+        printf("\n");
         closedir(d);
     }
 }

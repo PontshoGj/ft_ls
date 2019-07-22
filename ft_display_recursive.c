@@ -34,10 +34,12 @@ void  ft_display_recursive(const char *str)
     ss = ft_lstnew(0, 0);
     if (d)
     {
-        //printf("%s\n", str);
+        printf("%s\n\n", str);
         while ((dir = readdir(d)) != 0)
         {
             s = dir->d_name;
+            if (s[0] == '.')
+                continue;
             if (dir->d_type == DT_DIR && ft_strcmp(dir->d_name , ".") != 0 && ft_strcmp(dir->d_name, "..") != 0)
             {
 	            s = "";    
@@ -46,23 +48,21 @@ void  ft_display_recursive(const char *str)
 	            s = ft_strjoin(s, dir->d_name);
 	            ft_lstadd(&ss, newlst(s));
 	        }
-	        //printf("%s\t", dir->d_name);
+	        printf("%s\t", dir->d_name);
         }
         closedir(d);
     }
     printf("\n\n");
     while (ss->next != 0)
     {
-        s = ss->content;
-        //printf("§§");
-        //printf("\n%s\n", s);
-        ft_display_recursive(s);
+        //s = ss->content;
+        ft_display_recursive((const char *)ss->content);
 	    ss = ss->next;
         if (ss->content == 0)
             return ;
     }
 }
-
+/*
 int main(int argc, char **argv) {
     if (argc == 1)
         ft_display_recursive(".");
@@ -73,4 +73,4 @@ int main(int argc, char **argv) {
     }
     printf("\n");
     return 0;
-}
+}*/
