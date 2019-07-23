@@ -22,4 +22,6 @@ void	ft_dellst(void *elem, size_t size);
 void    ft_display_recursive(const char *str);
 void    ft_joinfiled(char *str, char *flag);
 void    ft_display_dir(char *str);
+void    ft_lstsort(t_list *lst);
+void    ft_swaplst(t_list *lst, int first, int second);
 #endif
