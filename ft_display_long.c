@@ -14,7 +14,7 @@ void    ft_display_long(char *str)
         {
             s = dir->d_name;
             if (s[0] != '.')
-			    printf("%s\n", ft_joinfiled(s));
+			    ft_joinfiled(s, 0);
         }
         closedir(d);
     }

@@ -1,13 +1,13 @@
 #include "ft_ls.h"
 
-void    ft_lstsort(t_list *lst)
+void    ft_lstsort(t_list **lst)
 {
     t_list *lfirst;
     t_list *lsecond;
     int i;
     int j;
 
-    lfirst = lst;
+    lfirst = *lst;
     lsecond = 0;
     i = 1;
     j = 1;
