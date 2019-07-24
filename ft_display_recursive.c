@@ -18,17 +18,21 @@ t_list      *newlst(char *str)
 	ft_lstadd(&elem, adds);
     return (elem);
 }
-char *createpath(char *path, char *dirname)
+char    *pathname(char *str,char *dirname)
 {
     char *s;
+    char *temp;
 
-    s = "";    
-	s = ft_strjoin(s, path);
+    s = ft_strnew(1);
+    temp = s;    
+	s = ft_strjoin(s, str);
+    //ft_strdel(&temp);
 	s = ft_strcat(s, "/");
-	s = ft_strjoin(s, dirname);
+	s = ft_strcat(s, dirname);
+    s = ft_strcat(s, "/");
     return (s);
 }
-t_list  *ft_display_recursive(const char *str)
+void  ft_display_recursive(const char *str)
 {
     DIR *d;
     struct dirent *dir;
@@ -38,27 +42,34 @@ t_list  *ft_display_recursive(const char *str)
     if (!(d = opendir(str)))
     {
         printf("Not dir\n");
-        return 0;
+        printf("%s", str);
+        return ;
     }
-    //ss = ft_lstnew(0, 0);
-    ss = 0;
+    ss = ft_lstnew(0, 0);
     if (d)
     {
+        
         while ((dir = readdir(d)) != 0)
         {
             s = dir->d_name;
-            s = createpath((char *)str, s);
-            if (dir->d_type == DT_DIR)
-            {
-	            ss = ft_display_recursive(s);
-	            ft_lstadd(&ss, newlst(s));
-            }
+            if (s[0] == '.')
+                continue;
+            if (dir->d_type == DT_DIR && ft_strcmp(dir->d_name , ".") != 0 && ft_strcmp(dir->d_name, "..") != 0)
+                    ft_lstadd(&ss, newlst(pathname((char *)str, s)));
+	        printf("%s\t\t\t\t", s);
         }
         closedir(d);
     }
-    return (ss);
+    while (ss->next != 0)
+    {
+        printf("\n\n%s\n", ss->content);
+        ft_display_recursive((const char *)ss->content);
+	    ss = ss->next;
+        if (ss->content == 0)
+            return ;
+    }
 }
-/*
+
 int main(int argc, char **argv) {
     if (argc == 1)
         ft_display_recursive(".");
@@ -69,14 +80,4 @@ int main(int argc, char **argv) {
     }
     printf("\n");
     return 0;
-}*/
-int main()
-{
-    t_list	*elem = ft_display_recursive(".");
-    while (elem)
-	{
-		ft_putendl(elem->content);
-		elem = elem->next;
-	}
-    return (0);
 }
