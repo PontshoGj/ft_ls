@@ -18,8 +18,17 @@ t_list      *newlst(char *str)
 	ft_lstadd(&elem, adds);
     return (elem);
 }
+char *createpath(char *path, char *dirname)
+{
+    char *s;
 
-void  ft_display_recursive(const char *str)
+    s = "";    
+	s = ft_strjoin(s, path);
+	s = ft_strcat(s, "/");
+	s = ft_strjoin(s, dirname);
+    return (s);
+}
+t_list  *ft_display_recursive(const char *str)
 {
     DIR *d;
     struct dirent *dir;
@@ -29,38 +38,25 @@ void  ft_display_recursive(const char *str)
     if (!(d = opendir(str)))
     {
         printf("Not dir\n");
-        return ;
+        return 0;
     }
-    ss = ft_lstnew(0, 0);
+    //ss = ft_lstnew(0, 0);
+    ss = 0;
     if (d)
     {
-        printf("%s\n\n", str);
         while ((dir = readdir(d)) != 0)
         {
             s = dir->d_name;
-            if (s[0] == '.')
-                continue;
-            if (dir->d_type == DT_DIR && ft_strcmp(dir->d_name , ".") != 0 && ft_strcmp(dir->d_name, "..") != 0)
+            s = createpath((char *)str, s);
+            if (dir->d_type == DT_DIR)
             {
-	            s = "";    
-	            s = ft_strjoin(s, str);
-	            s = ft_strcat(s, "/");
-	            s = ft_strjoin(s, dir->d_name);
+	            ss = ft_display_recursive(s);
 	            ft_lstadd(&ss, newlst(s));
-	        }
-	        printf("%s\t", dir->d_name);
+            }
         }
         closedir(d);
     }
-    printf("\n\n");
-    while (ss->next != 0)
-    {
-        //s = ss->content;
-        ft_display_recursive((const char *)ss->content);
-	    ss = ss->next;
-        if (ss->content == 0)
-            return ;
-    }
+    return (ss);
 }
 /*
 int main(int argc, char **argv) {
@@ -74,3 +70,13 @@ int main(int argc, char **argv) {
     printf("\n");
     return 0;
 }*/
+int main()
+{
+    t_list	*elem = ft_display_recursive(".");
+    while (elem)
+	{
+		ft_putendl(elem->content);
+		elem = elem->next;
+	}
+    return (0);
+}

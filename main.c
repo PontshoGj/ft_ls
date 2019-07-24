@@ -16,6 +16,13 @@ int main(void)
 		ft_lstadd(&elem, adds);
 		i++;
 	}
+	adds = elem;
+	while (adds)
+	{
+		ft_putendl(adds->content);
+		adds = adds->next;
+	}
+	ft_putendl("\n");
 	//ft_lstsort(&elem);
 	ft_lstrev(elem);
 	while (elem)
