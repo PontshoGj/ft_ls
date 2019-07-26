@@ -50,7 +50,7 @@ int     isflag(char *s)
     }
     return (0);
 }
-/* 
+
 int main(int argc, char **argv)
 {
     int i;
@@ -76,10 +76,9 @@ int main(int argc, char **argv)
             }
             i++;
         }
-        ft_printdir(".", s);
+        ft_printdir("..", s);
         //ft_printdir(argv[1], 0);
     }
     //sleep(90);
     return (0);
 }
-*/

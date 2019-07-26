@@ -14,7 +14,7 @@ OBJ=$(SRC:.c=.o)
 $(NAME):
 	$(CC) $(CFLAGS) $(SRC)
 	ar rc $(NAME) $(OBJ)
-	$(CC) ft_display_recursive.c ft_ls.a libft/libft.a
+	$(CC) ft_ls.c ft_ls.a libft/libft.a
 
 all: $(NAME)
 
