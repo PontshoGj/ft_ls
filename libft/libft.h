@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:29:33 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/06/27 17:35:47 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/07/29 11:04:09 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,5 @@ int				ft_wordlen(char *s);
 char			*ft_str_to_lower(char *s);
 t_list			*ft_strsplit_lst(char const *s, char c);
 void			ft_printlst(t_list *elem);
+size_t			ft_strspn(const char *s, const char *charset);
 #endif

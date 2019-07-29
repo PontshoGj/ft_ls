@@ -63,11 +63,17 @@ void  ft_display_recursive(const char *str)
             if (s[0] == '.')
                 continue;
             if (dir->d_type == DT_DIR && ft_strcmp(dir->d_name , ".") != 0 && ft_strcmp(dir->d_name, "..") != 0)
-                    ft_lstadd(&ss, newlst(pathname((char *)str, s, c)));
-	        //printf("%s\t", s);
+            {
+                    //ft_lstadd(&ss, newlst(pathname((char *)str, s, c)));
+                    c = 's';
+                    ft_display_recursive((const char *)pathname((char *)str, s, c));
+            }
+            printf("%s\t", s);
         }
         closedir(d);
+        printf("\n");
     }
+    /*
     while (ss->next != 0)
     {
         //printf("\n\n%s\n", (char *)ss->content);
@@ -76,7 +82,7 @@ void  ft_display_recursive(const char *str)
 	    ss = ss->next;
         if (ss->content == 0)
             return ;
-    }
+    }*/
 }
 /* 
 int main(int argc, char **argv) {
