@@ -16,9 +16,9 @@ void    ft_lstsort(t_list **lst)
         lsecond = lfirst->next;
         while (lsecond != 0)
         {
+			j++;
             if (ft_strcmp((char *)lfirst->content, (char *)lsecond->content) > 0)
                 ft_swaplst(lst, i, j);
-            j++;
             lsecond = lsecond->next;
         }
         j = 1;
