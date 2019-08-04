@@ -1,6 +1,6 @@
 #include "ft_ls.h"
 
-void    ft_lstsortrev(t_list **lst)
+void    ft_lstrevsort(t_list **lst)
 {
     t_list *lfirst;
     t_list *lsecond;
@@ -17,7 +17,7 @@ void    ft_lstsortrev(t_list **lst)
         while (lsecond != 0)
         {
 			j++;
-            if (ft_strcmp((char *)lfirst->content, (char *)lsecond->content) < 0)
+            if (ft_strcmp((char *)lfirst->content, (char *)lsecond->content) > 0)
 				ft_swaplst(lst, i, j);
             lsecond = lsecond->next;
         }
