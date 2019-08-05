@@ -1,6 +1,6 @@
 #include "ft_ls.h"
 
-void    ft_lstsortrev(t_list **lst)
+void    ft_lstsort(t_list **lst)
 {
     t_list *lfirst;
     t_list *lsecond;
