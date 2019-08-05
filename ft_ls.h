@@ -28,4 +28,5 @@ t_list  *ft_lstrev(t_list *lst);
 int     ft_isflag(char *s);
 void    ft_lstrevsort(t_list **lst);
 t_list  *ft_dirlst(char *path);
+t_list  *ft_newlstelem(char *str);
 #endif

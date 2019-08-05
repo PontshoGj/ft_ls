@@ -3,21 +3,12 @@
 t_list      *newlst(char *str)
 {
     t_list	*elem;
-	//t_list	*adds;
-
+    
 	if (!(elem = ft_lstnew((const char *)str, ft_strlen(str))))
     {
         printf("Error");
 		return (0);
     }
-	//if (!(adds = ft_lstnew((const char *)str, ft_strlen(str))))
-    //{
-    //    printf("Error");
-	//	return (0);
-    //}
-    printf("%s\n", elem->content);
-	//ft_lstadd(&elem, adds);
- 
     return (elem);
 }
 char    *pathname(char *str,char *dirname, char c)

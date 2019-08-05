@@ -14,7 +14,7 @@ t_list *ft_dirlst(char *path)
     {
         while ((dir = readdir(d)) != 0)
         {
-            add = ft_lstnew((char *)dir->d_name, ft_strlen((const char *)dir->d_name));
+            add = ft_newlstelem((char *)dir->d_name);
             ft_lstadd(&newlst, add);
         }
         closedir(d);
