@@ -16,7 +16,7 @@ char    *ft_filename(char *str)
     i = ft_strlen(name->pw_name) + ft_strlen(grp->gr_name) + 1;
     s = (char *)malloc(sizeof(char) * i);
     s[i] = 0;
-    s = ft_strjoin(name->pw_name, " ");
+    s = ft_strjoin(name->pw_name, "  ");
     s = ft_strcat(s, grp->gr_name);
     
     return (s);

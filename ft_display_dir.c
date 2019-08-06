@@ -2,10 +2,10 @@
 
 static void    displaysl(char *s, char *flag)
 {
-    if (ft_strcmp(flag, "l") && s[0] != '.')
-        printf("%s\n", ft_display_long(s));
+    if (ft_strcmp(flag, "l") == 0 && s[0] != '.')
+        ft_display_long(s);
     else if (ft_strspn(flag, "la") == 2)
-        printf("%s\n", ft_display_long(s));
+        ft_display_long(s);
     else if (ft_strspn(flag, "lar") == 2)
         return ;
     else if (ft_strspn(flag, "lat") == 2)
@@ -62,12 +62,13 @@ static void    displays(char *s, char *flag)
         return ;
     else if (ft_strspn(flag, "t") && s[0] != '.')
         return ;
-    else if (ft_strchr(flag, 'R') != 0)
-        displaysR(s, flag);
-    else if (ft_strchr(s, 'a') != 0)
-        displaysa(s,flag);
-    else if (ft_strchr(s, 'l') != 0)
+    else if (ft_strchr(flag, 'a'))
+        displaysa(s, flag);
+    else if (ft_strchr(flag, 'l'))
         displaysl(s, flag);
+    else if (ft_strchr(flag, 'R'))
+        displaysR(s, flag);
+    
 }
 
 void    ft_display_dir(char *str, char *flag)
@@ -75,19 +76,18 @@ void    ft_display_dir(char *str, char *flag)
     DIR *d;
     struct dirent *dir;
     char *s;
-    t_list *lst;
+    //t_list *lst;
 
     s = 0;
-
-    lst = ft_dirlst(str);
-    while (lst != 0)
-    {
-        if ((d = opendir(ft_pathname(str,(char *)lst->content))))
+    //lst = ft_dirlst(str);
+    //while (lst != 0)
+    //{
+        if ((d = opendir(str)))
         {
             while ((dir = readdir(d)) != 0)
                 displays((char *)dir->d_name, flag);
-            closedir(d);
         }
-        lst = lst->next;
-    }
+        closedir(d);
+        //lst = lst->next;
+    //}
 }
