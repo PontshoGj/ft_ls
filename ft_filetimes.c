@@ -16,7 +16,7 @@ char        *ft_filetimes(char *str)
     char    *strtime;
 
     strarray = ft_strsplit(ftime(str), ' ');
-    strtime = ft_strcat(strarray[1], " ");
+    strtime = ft_strcat(strarray[1], "  ");
     strtime = ft_strjoin(strtime, strarray[2]);
     strtime = ft_strcat(strtime, " ");
     strtime = ft_strjoin(strtime, ft_strsub(strarray[3], 0, 5));
