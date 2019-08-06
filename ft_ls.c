@@ -2,14 +2,7 @@
 
 void    ft_printdir(char *str, char *flag)
 {
-    if (ft_strcmp(flag, "l") == 0)
-        ft_joinfiled(str, "");
-    else if (ft_strcmp(flag, "a") == 0)
-        ft_display_all(str);
-    else if (ft_strcmp(flag, "R") == 0)
-        ft_display_recursive(str);
-    else if (ft_strcmp(flag, "al") == 0 || ft_strcmp(flag, "la") == 0)
-        ft_joinfiled(str, ".");
+    ft_display_dir(str, flag);
 }
 
 int main(int argc, char **argv)
@@ -38,9 +31,8 @@ int main(int argc, char **argv)
             }
             i++;
         }
-        ft_printdir("ft_filelink.c", s);
+        ft_display_dir(".", s);
         //ft_printdir(argv[1], 0);
     }
-    //sleep(90);
     return (0);
 }

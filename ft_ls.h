@@ -20,8 +20,9 @@ char    *ft_filename(char *str);
 void    ft_display_all(char *str);
 void	ft_dellst(void *elem, size_t size);
 void    ft_display_recursive(const char *str);
-void    ft_joinfiled(char *str, char *flag);
-void    ft_display_dir(char *str);
+char    *ft_display_long(char *str);
+char    *ft_joinfiled(char *str);
+void    ft_display_dir(char *str, char *flag);
 void    ft_lstsort(t_list **lst);
 void    ft_swaplst(t_list **lst, int first, int second);
 t_list  *ft_lstrev(t_list *lst);
@@ -29,4 +30,5 @@ int     ft_isflag(char *s);
 void    ft_lstrevsort(t_list **lst);
 t_list  *ft_dirlst(char *path);
 t_list  *ft_newlstelem(char *str);
+char    *ft_pathname(char *str,char *dirname);
 #endif

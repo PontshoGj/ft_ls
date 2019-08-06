@@ -12,7 +12,7 @@ char    *ft_filename(char *str)
         return 0;
     if ((grp = getgrgid(fileStat.st_gid)) == 0)
         return 0;
-    s = ft_strjoin(name->pw_name, "   ");
+    s = ft_strjoin(name->pw_name, "  ");
     s = ft_strcat(s, grp->gr_name);
     return (s);
 }

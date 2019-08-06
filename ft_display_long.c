@@ -1,21 +1,20 @@
 #include "ft_ls.h"
 
-void    ft_display_long(char *str)
+char    *ft_display_long(char *str)
 {
-    DIR *d;
-    struct dirent *dir;
     char *s;
-
-    s = 0;
-    d = opendir(str);
-    if (d)
-    {
-        while ((dir = readdir(d)) != 0)
-        {
-            s = dir->d_name;
-            if (s[0] != '.')
-			    ft_joinfiled(s, 0);
-        }
-        closedir(d);
-    }
+    
+    s = "";
+    s = ft_strjoin(s, ft_permission(str));
+    s = ft_strcat(s, "   ");
+    s = ft_strjoin(s, ft_itoa(ft_filelink(str)));
+    s = ft_strcat(s, " ");
+    s = ft_strcat(s, ft_filename(str));
+    s = ft_strcat(s, "   ");
+    s = ft_strjoin(s, ft_itoa(ft_filesize(str)));
+    s = ft_strcat(s, "  ");
+    s = ft_strcat(s, ft_filetimes(str));
+    s = ft_strcat(s, " ");
+    s = ft_strcat(s, str);
+    return (s);
 }
