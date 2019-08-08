@@ -2,7 +2,7 @@ NAME=ft_ls.a
 
 CC=gcc
 
-CFLAGS=-Wall -Wextra -Werror -c -I .
+CFLAGS=-Wall -Wextra -Werror -c
 
 RM=rm -f
 

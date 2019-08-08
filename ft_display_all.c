@@ -2,20 +2,15 @@
 
 void    ft_display_all(char *str)
 {
-    DIR *d;
-    struct dirent *dir;
-    char *s;
+    static int i;
 
-    s = 0;
-    d = opendir(str);
-    if (d)
+    if (!i)
+        i = 0;
+    else if (i == 5)
     {
-        while ((dir = readdir(d)) != 0)
-        {
-            s = dir->d_name;
-			printf("%s\t", s);
-        }
+        i = 0;
         printf("\n");
-        closedir(d);
     }
+    printf("%s%*.*s", str, (int)(24 - ft_strlen(str)), (int)(10 - ft_strlen(str)), " ");
+    i++;
 }

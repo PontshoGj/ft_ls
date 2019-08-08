@@ -45,7 +45,7 @@ static void    displaysR(char *s, char *flag)
 static void    displaysa(char *s, char *flag)
 {
     if (ft_strcmp(flag, "a") == 0)
-		printf("%s\t", s);
+		ft_display_all(s);
     else if (ft_strspn(flag, "ar"))
         printf("%s\t", s);
     else if (ft_strspn(flag, "at"))
@@ -57,7 +57,7 @@ static void    displaysa(char *s, char *flag)
 static void    displays(char *s, char *flag)
 {
     if (ft_strcmp(flag, "") == 0 && s[0] != '.')
-		printf("%s\t", s);
+		ft_display_all(s);
     else if (ft_strspn(flag, "r") && s[0] != '.')
         return ;
     else if (ft_strspn(flag, "t") && s[0] != '.')
