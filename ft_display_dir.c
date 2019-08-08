@@ -82,12 +82,17 @@ void    ft_display_dir(char *str, char *flag)
     //lst = ft_dirlst(str);
     //while (lst != 0)
     //{
-        if ((d = opendir(str)))
+        d = 0;
+        if (ft_strchr(flag, 'R'))
+            disp(str);
+        else if ((d = opendir(str)))
         {
             while ((dir = readdir(d)) != 0)
                 displays((char *)dir->d_name, flag);
+            closedir(d);
         }
-        closedir(d);
+        
         //lst = lst->next;
     //}
+    (void)displays;
 }

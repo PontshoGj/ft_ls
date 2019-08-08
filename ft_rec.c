@@ -11,9 +11,10 @@ void    disp(char *s)
     str = 0;
     while (lst != 0)
     {
+        printf("%s\t", (char *)lst->content);
         //ft_display_all((char *)lst->content);
         lst = lst->next;
-    }
+    }/*
     printf("\n\n");
     while(temp != 0)
     {
@@ -25,5 +26,5 @@ void    disp(char *s)
             disp(ft_pathname(s, str));
         }
         temp = temp->next;
-    }
+    }*/
 }
