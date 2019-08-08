@@ -11,6 +11,6 @@ void    ft_display_all(char *str)
         i = 0;
         printf("\n");
     }
-    printf("%s%*.*s", str, (int)(24 - ft_strlen(str)), (int)(10 - ft_strlen(str)), " ");
     i++;
+    printf("%s%*.*s", str, (int)(24 - ft_strlen(str)), (int)(10 - ft_strlen(str)), " ");
 }

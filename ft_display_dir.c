@@ -21,7 +21,7 @@ static void    displaysl(char *s, char *flag)
 static void    displaysR(char *s, char *flag)
 {
     if (ft_strcmp(flag, "R") == 0 && s[0] != '.')
-        return ;
+        disp(s);
     else if (ft_strspn(flag, "Ra") == 2)
         return ;
     else if (ft_strspn(flag, "Rar") == 2)

@@ -30,4 +30,6 @@ void    ft_lstrevsort(t_list **lst);
 t_list  *ft_dirlst(char *path);
 t_list  *ft_newlstelem(char *str);
 char    *ft_pathname(char *str,char *dirname);
+int     isdir(char *s);
+void    disp(char *s);
 #endif
