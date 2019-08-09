@@ -9,13 +9,16 @@ t_list *ft_dirlst(char *path)
 
     newlst = 0;
     add = 0;
+    
     d = opendir(path);
     if (d)
     {
         while ((dir = readdir(d)) != 0)
         {
+            
             add = ft_newlstelem((char *)dir->d_name);
             ft_lstadd(&newlst, add);
+            ft_putstr(newlst->content);
         }
         closedir(d);
     }
