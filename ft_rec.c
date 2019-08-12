@@ -29,12 +29,35 @@ void    disp(char *s)
     }
 }
 */
+t_list *ftdirlst(char *path)
+{
+    DIR *d;
+    struct dirent *dir;
+    t_list *newlst;
+    t_list *add;
+
+    newlst = 0;
+    add = 0;
+    d = opendir(path);
+    if (d)
+    {
+        while ((dir = readdir(d)) != 0)
+        {
+            add = ft_newlstelem((char *)dir->d_name);
+            ft_lstadd(&newlst, add);
+        }
+        closedir(d);
+    }
+    //ft_lstsortrev(&newlst);
+    return (newlst);
+}
+
 void    disp(char *s)
 {
     t_list *temp;
     //char *str;
 
-    temp = ft_dirlst(s);
+    temp = ftdirlst(s);
     //printf("%s", s);
     /*while(temp != 0)
     {
