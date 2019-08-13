@@ -6,16 +6,20 @@ CFLAGS=-Wall -Wextra -Werror -c
 
 RM=rm -f
 
-SRC=ft_dellst.c ft_filesize.c ft_filetimes.c ft_filename.c ft_display_recursive.c ft_permission.c ft_filelink.c \
-	ft_display_all.c ft_display_dir.c ft_lstsort.c ft_swaplst.c ft_isflag.c ft_lstrevsort.c ft_dirlst.c \
-	ft_newlstelem.c ft_pathname.c ft_display_long.c ft_isdir.c ft_rec.c \
+SRC= include/ft_dellst.c include/ft_filesize.c include/ft_filetimes.c include/ft_filename.c include/ft_display_recursive.c include/ft_permission.c include/ft_filelink.c \
+	include/ft_display_all.c include/ft_display_dir.c include/ft_lstsort.c include/ft_swaplst.c include/ft_isflag.c include/ft_lstrevsort.c include/ft_dirlst.c \
+	include/ft_newlstelem.c include/ft_pathname.c include/ft_display_long.c include/ft_isdir.c include/ft_rec.c include/ft_isfile.c \
 
 OBJ=$(SRC:.c=.o)
 
 $(NAME):
 	$(CC) $(CFLAGS) $(SRC)
+	mv *.o include/
 	ar rc $(NAME) $(OBJ)
-	$(CC) ft_ls.c ft_ls.a libft/libft.a
+	mv ft_ls.a include
+	cd libft && make re && make clean
+	$(CC) -o ft_ls include/ft_ls.c include/ft_ls.a libft/libft.a
+	rm -f include/*.o
 
 all: $(NAME)
 

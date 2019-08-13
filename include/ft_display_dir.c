@@ -45,7 +45,7 @@ static void    displaysR(char *s, char *flag)
 static void    displaysa(char *s, char *flag)
 {
     if (ft_strcmp(flag, "a") == 0)
-		ft_display_all(s);
+		ft_display_all(s, "");
     else if (ft_strspn(flag, "ar"))
         printf("%s\t", s);
     else if (ft_strspn(flag, "at"))
@@ -57,7 +57,7 @@ static void    displaysa(char *s, char *flag)
 static void    displays(char *s, char *flag)
 {
     if (ft_strcmp(flag, "") == 0 && s[0] != '.')
-		ft_display_all(s);
+		ft_display_all(s, flag);
     else if (ft_strspn(flag, "r") && s[0] != '.')
         return ;
     else if (ft_strspn(flag, "t") && s[0] != '.')
@@ -76,23 +76,20 @@ void    ft_display_dir(char *str, char *flag)
     DIR *d;
     struct dirent *dir;
     char *s;
-    //t_list *lst;
-
+    
     s = 0;
-    //lst = ft_dirlst(str);
-    //while (lst != 0)
-    //{
-        d = 0;
-        if (ft_strchr(flag, 'R'))
-            disp(str);
-        else if ((d = opendir(str)))
-        {
-            while ((dir = readdir(d)) != 0)
-                displays((char *)dir->d_name, flag);
-            closedir(d);
-        }
-        
-        //lst = lst->next;
-    //}
+         d = 0;
+    if (ft_strchr(flag, 'R') && isdir(str))
+        disp(str);
+    else if (isfile(str))
+    {
+        ft_display_all(str, flag);
+    }
+    else if ((d = opendir(str)) && isdir(str))
+    {
+        while ((dir = readdir(d)) != 0)
+            displays((char *)dir->d_name, flag);
+        closedir(d);
+    }
     (void)displays;
 }
