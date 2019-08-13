@@ -1,5 +1,17 @@
 #include "ft_ls.h"
 
+int    checkfl(char *str)
+{
+    char s;
+    if(!(s = ft_isflag(str)))
+                return (1);     
+    else
+    {
+        printf("ft_ls: illegal option -- %c\nusage: ft_ls [-Ralrt] [file ...]\n", s);
+        exit(1);
+    }
+}
+
 int main(int argc, char **argv)
 {
     int i;
@@ -10,26 +22,23 @@ int main(int argc, char **argv)
     if (argc == 1)
     {
         (void)argv;
-        ft_display_dir(argv[1], "");
+        ft_display_dir(".", "");
     }
     if (argc > 1)
     {
         while (i < argc)
         {
-            if(ft_isflag(argv[i]) == 1)
-                s = ft_strjoin(s, ++argv[i]);     
+            if(checkfl(argv[i]))
+                s = ft_strjoin(s, ++argv[i]);
             else if (isdir(argv[i]) || isfile(argv[i]))
             {
                 if (ft_strlen(s) >= 1)
                     ft_display_dir(argv[i], s);
                 else
-                    ft_display_dir(argv[i], "");
+                    ft_display_dir(argv[i], 0);
             }
-            else
-            {
-                printf("ls: illegal option -- %c\nusage: ls [-Ralrt] [file ...]\n", argv[i][1]);
-                exit(1);
-            }
+                 
+            
             i++;
         }
         //ft_display_dir(".", s);

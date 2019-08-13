@@ -31,7 +31,7 @@ static int	checkflags(char c)
 	return (0);
 }
 
-int			ft_isflag(char *s)
+char			ft_isflag(char *s)
 {
 	int		i;
 
@@ -42,10 +42,10 @@ int			ft_isflag(char *s)
 		{
 			while (s[i])
 			{
-				if (checkflags(s[i++]) == 0)
-					return (0);
+				if (checkflags(s[i]) == 0)
+					return (s[i]);
+				i++;
 			}
-			return (1);
 		}
 	}
 	return (0);

@@ -82,14 +82,11 @@ void    ft_display_dir(char *str, char *flag)
     if (ft_strchr(flag, 'R') && isdir(str))
         disp(str);
     else if (isfile(str))
-    {
         ft_display_all(str, flag);
-    }
     else if ((d = opendir(str)) && isdir(str))
     {
         while ((dir = readdir(d)) != 0)
             displays((char *)dir->d_name, flag);
         closedir(d);
     }
-    (void)displays;
 }
