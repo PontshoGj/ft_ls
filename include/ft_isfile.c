@@ -4,5 +4,5 @@ int isfile(char *s)
 {
     struct stat kk;
     stat(s, &kk);
-    return ((S_ISDIR(kk.st_mode)) ? 0 : 1);
+    return ((S_ISREG(kk.st_mode)) ? 1 : 0);
 }

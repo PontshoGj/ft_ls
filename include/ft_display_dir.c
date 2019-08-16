@@ -56,19 +56,19 @@ static void    displaysa(char *s, char *flag)
 
 static void    displays(char *s, char *flag)
 {
+    //printf("%s", flag);
     if (ft_strcmp(flag, "") == 0 && s[0] != '.')
-		ft_display_all(s, flag);
+        ft_display_all(s, flag);
     else if (ft_strspn(flag, "r") && s[0] != '.')
         return ;
     else if (ft_strspn(flag, "t") && s[0] != '.')
         return ;
-    else if (ft_strchr(flag, 'a'))
-        displaysa(s, flag);
-    else if (ft_strchr(flag, 'l'))
+    else if (ft_strspn(flag, "l") == 1)
         displaysl(s, flag);
-    else if (ft_strchr(flag, 'R'))
+    else if (ft_strspn(flag, "a") == 1)
+        displaysa(s, flag);
+    else if (ft_strspn(flag, "R") == 1)
         displaysR(s, flag);
-    
 }
 
 void    ft_display_dir(char *str, char *flag)
@@ -78,7 +78,7 @@ void    ft_display_dir(char *str, char *flag)
     char *s;
     
     s = 0;
-         d = 0;
+    d = 0;
     if (ft_strchr(flag, 'R') && isdir(str))
         disp(str);
     else if (isfile(str))

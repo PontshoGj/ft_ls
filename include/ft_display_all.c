@@ -12,7 +12,7 @@ void    ft_display_all(char *str, char *flag)
         printf("\n");
     }
     i++;
-    if (flag != 0)
+    if (ft_strcmp(flag, "l") == 0)
         ft_display_long(str);
     else
         printf("%s%*.*s", str, (int)(24 - ft_strlen(str)), (int)(10 - ft_strlen(str)), " ");
