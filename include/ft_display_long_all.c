@@ -13,8 +13,10 @@ void    ft_display_long_all(char *str)
         while ((dir = readdir(d)) != 0)
         {
             s = dir->d_name;
-			//printf("%s\n", ft_joinfiled(dir->d_name));
+			printf("%s\t", s);
+            //ft_display_all(s,"");
         }
         closedir(d);
     }
+   // printf("\n");
 }

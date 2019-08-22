@@ -8,9 +8,9 @@ char    *ft_pathname(char *str,char *dirname)
     s = ft_strnew(1);
     temp = s;    
     s = ft_strjoin(s, str);
-    if (s[ft_strlen(s) - 1] != '/')
+    if (s[ft_strlen(s)] != '/')
 	    s = ft_strcat(s, "/");
 	s = ft_strcat(s, dirname);
-    s = ft_strcat(s, "/");
+    //s = ft_strcat(s, "/");
     return (s);
 }

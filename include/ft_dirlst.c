@@ -16,19 +16,21 @@ t_list *ft_dirlst(char *path)
 
     newlst = ft_lstnew(0,0);
     add = 0;
+    
     d = opendir(path);
+    
     if (d)
     {
+        
         while ((dir = readdir(d)) != 0)
         {
             add = ft_newlstelem((char *)dir->d_name);
-            printf("%s\n", (char *)add->content);
             ft_lstadd(&newlst, add);
-            
         }
         closedir(d);
+        return (newlst);
     }
-    //printf("%s", (char *)newlst->content);
     //ft_lstsort(&newlst);
-    return (newlst);
+    //printf("%s\n", (char *)newlst->content);
+    return (0);
 }

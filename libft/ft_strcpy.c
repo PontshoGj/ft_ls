@@ -14,7 +14,7 @@
 
 char		*ft_strcpy(char *dst, const char *src)
 {
-	int		i;
+	size_t	i;
 
 	i = 0;
 	if (sizeof(dst) >= sizeof(src))

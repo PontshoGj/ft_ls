@@ -11,10 +11,10 @@ void    ft_lstsort(t_list **lst)
     lsecond = *lst;
     i = 1;
     j = 0;
-    while (lfirst != 0)
+    while (lfirst->next != 0)
     {
         lsecond = *lst;
-        while (lsecond != 0)
+        while (lsecond->next != 0)
         {
 			j++;
             if (ft_strcmp((char *)lfirst->content, (char *)lsecond->content) < 0)

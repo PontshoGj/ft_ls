@@ -43,7 +43,6 @@ int main(int argc, char **argv)
             }
             i++;
         }
-        //printf("%zu", ft_strspn(s, "l"));
         ft_display_dir(".", s);
     }
     return (0);

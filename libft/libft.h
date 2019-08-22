@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:29:33 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/07/29 11:04:09 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/08/20 12:34:40 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,14 @@ int				ft_wordlen(char *s);
 char			*ft_str_to_lower(char *s);
 t_list			*ft_strsplit_lst(char const *s, char c);
 void			ft_printlst(t_list *elem);
+int				ft_atoi_base(const char *str, int str_base);
+int				ft_pow(int a, int value);
+void			ft_putnbrlong_fd(long long n, int fd);
+void			ft_putnbrlong(long long n);
+void			ft_printhex(int num);
 size_t			ft_strspn(const char *s, const char *charset);
+char			*ft_itoa_base(int value, int base, char h);
+int				ft_intlen_base(int n, int base);
+void			ft_putstrc(char *s, int size);
+void			ft_putstrc_fd(char *s, int fd, int size);
 #endif

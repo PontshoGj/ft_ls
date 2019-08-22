@@ -27,8 +27,8 @@ static char	*lmin(int n)
 
 static char	*ft_assing(int n)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 	char	*str;
 
 	i = ft_intlen(n);

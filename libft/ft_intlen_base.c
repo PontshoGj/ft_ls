@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_intlen_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/23 13:16:23 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/05/28 11:01:23 by pmogwere         ###   ########.fr       */
+/*   Created: 2019/08/17 02:20:23 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/08/17 02:23:22 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int					ft_memcmp(const void *s1, const void *s2, size_t n)
+int		ft_intlen_base(int n, int base)
 {
-	size_t			i;
-	unsigned char	*c;
-	unsigned char	*d;
+	int	count;
 
-	i = 0;
-	d = (unsigned char *)s1;
-	c = (unsigned char *)s2;
-	while (n-- != 0)
+	count = 0;
+	if (n == 0)
+		return (1);
+	while (n)
 	{
-		if (d[i] != c[i])
-			return (d[i] - c[i]);
-		i++;
+		n = n / base;
+		count++;
 	}
-	return (0);
+	return (count);
 }

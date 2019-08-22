@@ -14,9 +14,9 @@
 
 size_t		ft_strspn(const char *s, const char *charset)
 {
-	int		i;
-	int		j;
-	int		count;
+	size_t	i;
+	size_t	j;
+	size_t	count;
 
 	j = 0;
 	i = 0;

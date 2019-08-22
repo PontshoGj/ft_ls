@@ -6,6 +6,7 @@ void    ft_display_all(char *str, char *flag)
 
     if (!i)
         i = 0;
+   
     else if (i == 5)
     {
         i = 0;

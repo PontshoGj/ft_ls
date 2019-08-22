@@ -6,7 +6,7 @@
 #    By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/09 14:38:38 by pmogwere          #+#    #+#              #
-#    Updated: 2019/07/29 11:04:31 by pmogwere         ###   ########.fr        #
+#    Updated: 2019/08/20 12:34:01 by pmogwere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME=libft.a
@@ -26,14 +26,16 @@ ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 ft_toupper.c ft_tolower.c \
 ft_strnew.c ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c \
 ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c \
-ft_strtrim.c ft_strsplit.c ft_itoa.c \
+ft_strtrim.c ft_strsplit.c ft_itoa.c ft_pow.c \
 ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c \
 ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \
 ft_iswhitespace.c ft_elementcount.c ft_str_is_lowercase.c ft_str_to_upper.c \
 ft_str_is_printable.c ft_islower.c ft_isupper.c ft_strsplit_lst.c \
 ft_str_is_alpha.c ft_strrev.c ft_strlenc.c ft_intlen.c ft_printlst.c \
-ft_str_to_upper.c ft_isspace.c ft_wordlen.c ft_str_to_lower.c ft_strspn.c \
+ft_str_to_upper.c ft_isspace.c ft_wordlen.c ft_str_to_lower.c ft_atoi_base.c \
+ft_putnbrlong.c ft_putnbrlong_fd.c ft_printhex.c ft_strspn.c ft_itoa_base.c \
+ft_intlen_base.c ft_putstrc_fd.c ft_putstrc.c \
 
 OBJ=$(SRC:.c=.o)
 

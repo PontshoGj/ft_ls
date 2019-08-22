@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/23 13:16:23 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/05/28 11:01:23 by pmogwere         ###   ########.fr       */
+/*   Created: 2019/07/31 12:27:17 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/07/31 12:31:47 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int					ft_memcmp(const void *s1, const void *s2, size_t n)
+int		ft_pow(int a, int value)
 {
-	size_t			i;
-	unsigned char	*c;
-	unsigned char	*d;
+	int	i;
 
-	i = 0;
-	d = (unsigned char *)s1;
-	c = (unsigned char *)s2;
-	while (n-- != 0)
+	i = 1;
+	if (a == 0)
+		return (1);
+	if (a == 1)
+		return (value);
+	while (a > 0)
 	{
-		if (d[i] != c[i])
-			return (d[i] - c[i]);
-		i++;
+		i *= value;
+		a--;
 	}
-	return (0);
+	return (i);
 }

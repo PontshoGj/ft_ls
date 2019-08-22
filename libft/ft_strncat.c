@@ -14,8 +14,8 @@
 
 char		*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 {
-	int		i;
-	int		holds1;
+	size_t	i;
+	size_t	holds1;
 
 	i = 0;
 	holds1 = ft_strlen(s1);

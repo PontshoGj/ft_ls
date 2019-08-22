@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char		*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	int	i;
-	int	holds1;
+	size_t	i;
+	size_t	holds1;
 
 	i = 0;
 	holds1 = ft_strlen(s1);

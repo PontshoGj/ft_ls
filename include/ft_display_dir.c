@@ -80,7 +80,7 @@ void    ft_display_dir(char *str, char *flag)
     s = 0;
     d = 0;
     if (ft_strchr(flag, 'R') && isdir(str))
-        disp(str);
+        displaysR(str, flag);
     else if (isfile(str))
         ft_display_all(str, flag);
     else if ((d = opendir(str)) && isdir(str))
