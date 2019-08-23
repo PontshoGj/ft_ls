@@ -18,7 +18,7 @@ void        ft_swaplst(t_list **lst, int first, int second)
 	    lsecond = lsecond->next;
 	temp = (char *)lfirst->content;
     lfirst->content = (char *)lsecond->content;
-    lfirst->content_size = ft_strlen((char *)lfirst->content);
+    lfirst->content_size = lsecond->content_size;
     lsecond->content = temp;
-    lsecond->content_size = ft_strlen((char *)lsecond->content);
+    lsecond->content_size = lfirst->content_size;
 }

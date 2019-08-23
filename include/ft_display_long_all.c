@@ -2,12 +2,12 @@
 
 void    ft_display_long_all(char *s)
 {
-    //t_list *temp;
-    //t_list hol;
-    //char *str;
-    (void)s;
-    //temp = ft_dirlst(s);
-    /*while(temp->next != 0)
+    t_list *temp;
+    t_list hol;
+    char *str;
+    
+    temp = ft_dirlst(s);
+    while(temp->next != 0)
     {
         str = (char *)temp->content;
         if (str[0] != '.')
@@ -15,7 +15,7 @@ void    ft_display_long_all(char *s)
         hol = *temp;
         temp = temp->next;
         ft_dellst(hol.content, hol.content_size); 
-    }*/
+    }
     //printf("<----->\n");
     printf("\n");
 }

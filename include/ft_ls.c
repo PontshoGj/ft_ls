@@ -27,7 +27,7 @@ int main(int argc, char **argv)
     if (argc == 1)
     {
         (void)argv;
-        ft_display_dir(".", "");
+        ft_display_dir("..", "R");
     }
     if (argc > 1)
     {

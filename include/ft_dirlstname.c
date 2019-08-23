@@ -20,7 +20,7 @@ t_list *ft_dirlstname(char *path)
             str = (char *)dir->d_name;
             if (isdir(ft_pathname(path, str)) && str[0] != '.')
             {
-                printf("--->%s\n", (char *)dir->d_name);
+                //printf("--->%s\n", (char *)dir->d_name);
                 add = ft_newlstelem((char *)dir->d_name);
                 ft_lstadd(&newlst, add);   
             }
