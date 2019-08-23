@@ -12,6 +12,14 @@
 
 struct stat fileStat;
 
+typedef	struct	tt_list
+{
+	void			*content;
+    char            *time;
+	size_t			content_size;
+	struct tt_list	*next;
+}       ls_list;
+
 char    *ft_permission(char *filename);
 int     ft_filelink(char *str);
 int     ft_filesize(char *str);

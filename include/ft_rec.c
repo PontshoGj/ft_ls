@@ -20,7 +20,7 @@ void    fcallme(char *s)
 
 void    disp(char *s)
 {
-    //printf("%s:\n", s);
+    printf("%s:\n", s);
     //ft_display_long_all(s);
     //printf("<--------------------------------------------------------------------------------------------------->");
     fcallme(s);
