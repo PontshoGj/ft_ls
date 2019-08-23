@@ -1,22 +1,21 @@
 #include "ft_ls.h"
 
-void    ft_display_long_all(char *str)
+void    ft_display_long_all(char *s)
 {
-    DIR *d;
-    struct dirent *dir;
-    char *s;
-
-    s = 0;
-    d = opendir(str);
-    if (d)
+    //t_list *temp;
+    //t_list hol;
+    //char *str;
+    (void)s;
+    //temp = ft_dirlst(s);
+    /*while(temp->next != 0)
     {
-        while ((dir = readdir(d)) != 0)
-        {
-            s = dir->d_name;
-			printf("%s\t", s);
-            //ft_display_all(s,"");
-        }
-        closedir(d);
-    }
-   // printf("\n");
+        str = (char *)temp->content;
+        if (str[0] != '.')
+            ft_display_all(str, "");
+        hol = *temp;
+        temp = temp->next;
+        ft_dellst(hol.content, hol.content_size); 
+    }*/
+    //printf("<----->\n");
+    printf("\n");
 }

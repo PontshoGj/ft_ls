@@ -2,72 +2,72 @@
 
 static void    displaysl(char *s, char *flag)
 {
-    if (ft_strcmp(flag, "l") == 0 && s[0] != '.')
+    if (ft_strcmp("l", flag) == 0 && s[0] != '.')
         ft_display_long(s);
-    else if (ft_strspn(flag, "la") == 2)
+    else if (ft_strspn("la", flag) == 2)
         ft_display_long(s);
-    else if (ft_strspn(flag, "lar") == 2)
+    else if (ft_strspn("lar", flag) == 3)
         return ;
-    else if (ft_strspn(flag, "lat") == 2)
+    else if (ft_strspn("lat", flag) == 3)
         return ;
-    else if (ft_strspn(flag, "lt") == 2 && s[0] != '.')
+    else if (ft_strspn("lt", flag) == 2 && s[0] != '.')
         return ;
-    else if (ft_strspn(flag, "lr") == 2 && s[0] != '.')
+    else if (ft_strspn("lr", flag) == 2 && s[0] != '.')
         return ;
-    else if (ft_strspn(flag, "ltr") == 2 && s[0] != '.')
+    else if (ft_strspn("ltr", flag) == 3 && s[0] != '.')
         return ;
 }
 
 static void    displaysR(char *s, char *flag)
 {
-    if (ft_strcmp(flag, "R") == 0)
+    if (ft_strcmp("R", flag) == 0)
         disp(s);
-    else if (ft_strspn(flag, "Ra") == 2)
+    else if (ft_strspn("Ra", flag) == 2)
         return ;
-    else if (ft_strspn(flag, "Rar") == 2)
+    else if (ft_strspn("Rar", flag) == 3)
         return ;
-    else if (ft_strspn(flag, "Rat") == 2)
+    else if (ft_strspn("Rat", flag) == 3)
         return ;
-    else if (ft_strspn(flag, "Ratl") == 2)
+    else if (ft_strspn("Ratl", flag) == 4)
         return ;
-    else if (ft_strspn(flag, "Rl") == 2 && s[0] != '.')
+    else if (ft_strspn("Rl", flag) == 2 && s[0] != '.')
         return ;
-    else if (ft_strspn(flag, "Rt") == 2 && s[0] != '.')
+    else if (ft_strspn("Rt", flag) == 2 && s[0] != '.')
         return ;
-    else if (ft_strspn(flag, "Rr") == 2 && s[0] != '.')
+    else if (ft_strspn("Rr", flag) == 2 && s[0] != '.')
         return ;
-    else if (ft_strspn(flag, "Rtr") == 2 && s[0] != '.')
+    else if (ft_strspn("Rtr", flag) == 3 && s[0] != '.')
         return ;
-    else if (ft_strspn(flag, "Rtrl") == 2 && s[0] != '.')
+    else if (ft_strspn("Rtrl", flag) == 4 && s[0] != '.')
         return ;
 }
 
 static void    displaysa(char *s, char *flag)
 {
-    if (ft_strcmp(flag, "a") == 0)
+    if (ft_strcmp("a", flag) == 0)
 		ft_display_all(s, "");
-    else if (ft_strspn(flag, "ar"))
+    else if (ft_strspn("ar", flag) == 2)
         printf("%s\t", s);
-    else if (ft_strspn(flag, "at"))
+    else if (ft_strspn("at", flag) == 2)
         return ;
-    else if (ft_strspn(flag, "atr"))
+    else if (ft_strspn("atr", flag) == 3)
         return ;
 }
 
 static void    displays(char *s, char *flag)
 {
-    //printf("%s", flag);
-    if (ft_strcmp(flag, "") == 0 && s[0] != '.')
+    //printf("%zu", ft_strspn("l",flag));
+    if (ft_strcmp("", flag) == 0 && s[0] != '.')
         ft_display_all(s, flag);
-    else if (ft_strspn(flag, "r") && s[0] != '.')
+    else if (ft_strspn("r", flag) && s[0] != '.')
         return ;
-    else if (ft_strspn(flag, "t") && s[0] != '.')
+    else if (ft_strspn("t", flag) && s[0] != '.')
         return ;
-    else if (ft_strspn(flag, "l") == 1)
+    else if (ft_strspn("l", flag) == 1)
         displaysl(s, flag);
-    else if (ft_strspn(flag, "a") == 1)
+    else if (ft_strspn("a", flag) == 1)
         displaysa(s, flag);
-    else if (ft_strspn(flag, "R") == 1)
+    else if (ft_strspn("R", flag) == 1)
         displaysR(s, flag);
 }
 

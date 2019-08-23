@@ -18,15 +18,16 @@ t_list *ft_dirlstname(char *path)
         while ((dir = readdir(d)) != 0)
         {
             str = (char *)dir->d_name;
-            if (isdir(ft_pathname(path, str)) && str[0] != '.' && ft_strcmp(str, ".") != 0 && ft_strcmp(str, "..") != 0)
+            if (isdir(ft_pathname(path, str)) && str[0] != '.')
             {
+                printf("--->%s\n", (char *)dir->d_name);
                 add = ft_newlstelem((char *)dir->d_name);
                 ft_lstadd(&newlst, add);   
             }
         }
         closedir(d);
+        //ft_lstsort(&newlst);
         return (newlst);
     }
-    ft_lstsort(&newlst);
     return (0);
 }

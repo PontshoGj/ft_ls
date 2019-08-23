@@ -13,8 +13,8 @@ void    ft_display_all(char *str, char *flag)
         printf("\n");
     }
     i++;
-    if (ft_strcmp(flag, "l") == 0)
+    if (ft_strspn("l", flag) == 1)
         ft_display_long(str);
     else
-        printf("%s%*.*s", str, (int)(24 - ft_strlen(str)), (int)(10 - ft_strlen(str)), " ");
+        printf("%-24s", str);
 }
