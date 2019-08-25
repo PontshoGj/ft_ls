@@ -28,6 +28,7 @@ t_list *ft_dirlst(char *path)
             ft_lstadd(&newlst, add);
         }
         closedir(d);
+        ft_lstsort(&newlst);
         return (newlst);
     }
     //ft_lstsort(&newlst);

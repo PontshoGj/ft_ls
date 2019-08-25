@@ -42,4 +42,9 @@ int     isdir(char *s);
 void    disp(char *s);
 int     isfile(char *s);
 t_list  *ft_dirlstname(char *path);
+int		ft_islink(char *s);
+char	**ft_sortarry(char **s);
+char	**dirlist(char *p);
+size_t 	ft_dirnum(char *path);
+char	**ft_arrydirlist(char *p);
 #endif
