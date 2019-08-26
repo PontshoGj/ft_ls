@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdir.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/26 12:20:12 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/08/26 12:21:16 by pmogwere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
-int isdir(char *s)
+int	dir(char *s)
 {
-    struct stat kk;
-    stat(s, &kk);
-    return ((S_ISDIR(kk.st_mode)) ? 1 : 0);
+	struct stat kk;
+
+	stat(s, &kk);
+	return ((S_ISDIR(kk.st_mode)) ? 1 : 0);
 }

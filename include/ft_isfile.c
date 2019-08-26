@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isfile.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/26 12:46:40 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/08/26 12:47:09 by pmogwere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
-int isfile(char *s)
+int				isfile(char *s)
 {
-    struct stat kk;
-    stat(s, &kk);
-    return ((S_ISREG(kk.st_mode)) ? 1 : 0);
+	struct stat	kk;
+
+	stat(s, &kk);
+	return ((S_ISREG(kk.st_mode)) ? 1 : 0);
 }

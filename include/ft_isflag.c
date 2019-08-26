@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 11:06:45 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/07/29 11:17:51 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/08/26 12:48:21 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	checkflags(char c)
 	return (0);
 }
 
-char			ft_isflag(char *s)
+char		ft_isflag(char *s)
 {
 	int		i;
 
