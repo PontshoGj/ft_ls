@@ -11,7 +11,7 @@ void    ft_display_long_all(char *s)
     {
         str = (char *)temp->content;
         if (str[0] != '.')
-            ft_display_all(str, "");
+            ft_display_all(str, "", "");
         hol = *temp;
         temp = temp->next;
         ft_dellst(hol.content, hol.content_size); 
