@@ -1,9 +1,11 @@
 #include "ft_ls.h"
 
-char    **ft_sorttype(char **s, char type)
+char    **ft_sorttype(char **s, char type, char *path)
 {
     if (type == 'r')
         return (ft_sortarryr(s));
+    else if (type == 't')
+        return (ft_sortarryt(s, path));
     return (ft_sortarry(s));
 }
 
@@ -29,7 +31,7 @@ char    **ft_arrydirlist(char *p)
         }
         closedir(d);
         s[i] = 0;
-        return (ft_sorttype(s, 'r'));
+        return (ft_sorttype(s, ' ', p));
     }
     return (0);
 }

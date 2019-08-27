@@ -2,6 +2,7 @@
 
 static void    displaysl(char *s, char *flag)
 {
+    //printf("%s\n", s);
     if (ft_strcmp("l", flag) == 0 && s[0] != '.')
         ft_display_long(s);
     else if (ft_strspn("la", flag) == 2)

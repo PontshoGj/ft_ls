@@ -12,6 +12,34 @@
 
 #include "ft_ls.h"
 
+char		**ft_sortarryt(char **s, char *path)
+{
+	char	*str;
+	size_t	i;
+	size_t	j;
+
+	str = 0;
+	i = 0;
+	j = 0;
+	while (s[j] != 0)
+	{
+		while (s[i] != 0)
+		{
+			if (ft_strcmp(ft_filetimes(ft_pathname(path,s[j])),\
+			 ft_filetimes(ft_pathname(path,s[i]))) > 0)
+			{
+				str = s[j];
+				s[j] = s[i];
+				s[i] = str;
+			}
+			i++;
+		}
+		i = 0;
+		j++;
+	}
+	return (s);
+}
+
 char		**ft_sortarryr(char **s)
 {
 	char	*str;
