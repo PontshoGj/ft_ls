@@ -12,14 +12,6 @@
 
 struct stat fileStat;
 
-typedef	struct	tt_list
-{
-	void			*content;
-    char            *time;
-	size_t			content_size;
-	struct tt_list	*next;
-}       ls_list;
-
 char    *ft_permission(char *filename);
 int     ft_filelink(char *str);
 int     ft_filesize(char *str);
@@ -30,20 +22,14 @@ void	ft_dellst(void *elem, size_t size);
 void    ft_display_long(char *str);
 void    ft_display_dir(char *str, char *flag);
 void    ft_display_long_all(char *str);
-void    ft_lstsort(t_list **lst);
-void    ft_swaplst(t_list **lst, int first, int second);
-t_list  *ft_lstrev(t_list *lst);
-char     ft_isflag(char *s);
-void    ft_lstrevsort(t_list **lst);
-t_list  *ft_dirlst(char *path);
-t_list  *ft_newlstelem(char *str);
+char	ft_isflag(char *s);
 char    *ft_pathname(char *str,char *dirname);
 int     isdir(char *s);
 void    ft_displayrec(char *s, char *flag);
 int     isfile(char *s);
-t_list  *ft_dirlstname(char *path);
 int		ft_islink(char *s);
 char	**ft_sortarry(char **s);
+char	**ft_sortarryr(char **s);
 char	**dirlist(char *p);
 size_t 	ft_dirnum(char *path);
 char	**ft_arrydirlist(char *p);

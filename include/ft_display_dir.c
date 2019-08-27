@@ -56,7 +56,7 @@ static void    displaysa(char *s, char *flag)
 
 static void    displays(char *s, char *flag)
 {
-    //printf("%zu", ft_strspn("l",flag));
+    //printf("%s", flag);
     if (ft_strcmp("", flag) == 0 && s[0] != '.')
         ft_display_all(s, flag, "");
     else if (ft_strspn("r", flag) && s[0] != '.')
@@ -71,20 +71,20 @@ static void    displays(char *s, char *flag)
 
 void    ft_display_dir(char *str, char *flag)
 {
-    DIR *d;
-    struct dirent *dir;
-    char *s;
+    int i;
+    char **arrlist;
     
-    s = 0;
-    d = 0;
+    i = 0;
+    arrlist = 0;
     if (ft_strspn("R",  flag) == 1 && isdir(str))
         displaysR(str, flag);
     else if (isfile(str))
         ft_display_all(str, flag, "");
-    else if ((d = opendir(str)) && isdir(str))
+    else if (isdir(str))
     {
-        while ((dir = readdir(d)) != 0)
-            displays((char *)dir->d_name, flag);
-        closedir(d);
+        arrlist = ft_arrydirlist(str);
+        while (arrlist[i] != 0)
+            displays(arrlist[i++], flag);
     }
+    (void)displays;
 }

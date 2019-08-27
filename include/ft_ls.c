@@ -40,7 +40,8 @@ int main(int argc, char **argv)
             }
             i++;
         }
-        ft_display_dir(".", s);
+        if (i == argc)
+            ft_display_dir(".", s);
     }
     return (0);
 }
