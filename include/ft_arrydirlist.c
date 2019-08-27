@@ -9,7 +9,7 @@ char    **ft_sorttype(char **s, char type, char *path)
     return (ft_sortarry(s));
 }
 
-char    **ft_arrydirlist(char *p)
+char    **ft_arrydirlist(char *p, char c)
 {
     DIR *d;
     struct dirent *dir;
@@ -31,7 +31,7 @@ char    **ft_arrydirlist(char *p)
         }
         closedir(d);
         s[i] = 0;
-        return (ft_sorttype(s, ' ', p));
+        return (ft_sorttype(s, c, p));
     }
     return (0);
 }

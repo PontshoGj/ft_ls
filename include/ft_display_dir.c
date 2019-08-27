@@ -1,12 +1,12 @@
 #include "ft_ls.h"
 
-static void    displaysl(char *s, char *flag)
+static void    displaysl(char *s, char *flag, char *path)
 {
     //printf("%s\n", s);
     if (ft_strcmp("l", flag) == 0 && s[0] != '.')
-        ft_display_long(s);
+        ft_display_long(s, path);
     else if (ft_strspn("la", flag) == 2)
-        ft_display_long(s);
+        ft_display_long(s, path);
     else if (ft_strspn("lar", flag) == 3)
         return ;
     else if (ft_strspn("lat", flag) == 3)
@@ -48,24 +48,24 @@ static void    displaysa(char *s, char *flag)
     if (ft_strcmp("a", flag) == 0)
 		ft_display_all(s, "", "");
     else if (ft_strspn("ar", flag) == 2)
-        printf("%s\t", s);
+        ft_display_all(s, "", "");
     else if (ft_strspn("at", flag) == 2)
-        return ;
+        ft_display_all(s, "", "");
     else if (ft_strspn("atr", flag) == 3)
-        return ;
+        return ft_display_all((s), "", "");
 }
 
-static void    displays(char *s, char *flag)
+static void    displays(char *s, char *flag,char *path)
 {
     //printf("%s", flag);
     if (ft_strcmp("", flag) == 0 && s[0] != '.')
         ft_display_all(s, flag, "");
     else if (ft_strspn("r", flag) && s[0] != '.')
-        return ;
+        ft_display_all(s, flag, "");
     else if (ft_strspn("t", flag) && s[0] != '.')
-        return ;
+        ft_display_all(s, flag, "");
     else if (ft_strspn("l", flag) == 1)
-        displaysl(s, flag);
+        displaysl(s, flag, path);
     else if (ft_strspn("a", flag) == 1)
         displaysa(s, flag);
 }
@@ -83,9 +83,11 @@ void    ft_display_dir(char *str, char *flag)
         ft_display_all(str, flag, "");
     else if (isdir(str))
     {
-        arrlist = ft_arrydirlist(str);
+        arrlist = ft_arrydirlist(str, ft_chksort(flag));
+        if (ft_strspn("atr", flag) == 3)
+            arrlist =  ft_sortarryr(arrlist);
         while (arrlist[i] != 0)
-            displays(arrlist[i++], flag);
+            displays(arrlist[i++], flag, str);
     }
     (void)displays;
 }

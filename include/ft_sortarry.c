@@ -21,6 +21,7 @@ char		**ft_sortarryt(char **s, char *path)
 	str = 0;
 	i = 0;
 	j = 0;
+	//ft_sortarry(s);
 	while (s[j] != 0)
 	{
 		while (s[i] != 0)

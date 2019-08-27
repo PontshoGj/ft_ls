@@ -29,7 +29,7 @@ void    ft_displayrec(char *ss, char *flag)
 {
     char **s;
 
-    s = ft_arrydirlist(ss);
+    s = ft_arrydirlist(ss, ' ');
     ft_printdir(s, flag, ss);
     ft_recd(s, ss, flag);
 }

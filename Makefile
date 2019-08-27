@@ -9,7 +9,7 @@ RM=rm -f
 SRC=include/ft_filesize.c include/ft_filetimes.c include/ft_filename.c include/ft_permission.c include/ft_filelink.c \
 	include/ft_display_all.c include/ft_display_dir.c include/ft_isflag.c \
 	include/ft_pathname.c include/ft_display_long.c include/ft_isdir.c include/ft_rec.c include/ft_isfile.c \
-	include/ft_islnk.c include/ft_sortarry.c include/ft_arrydirlist.c include/ft_dirnu.c \
+	include/ft_islnk.c include/ft_sortarry.c include/ft_arrydirlist.c include/ft_dirnu.c include/ft_chksort.c \
 
 OBJ=$(SRC:.c=.o)
 
