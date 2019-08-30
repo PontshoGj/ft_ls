@@ -9,6 +9,8 @@
 # include <time.h>
 # include <pwd.h>
 # include <grp.h>
+# include <sys/xattr.h>
+# include <unistd.h>
 
 struct stat fileStat;
 
@@ -35,4 +37,6 @@ char	**dirlist(char *p);
 size_t 	ft_dirnum(char *path);
 char	**ft_arrydirlist(char *p, char c);
 char    ft_chksort(char *flag);
+char    ft_filetype(char *path);
+char    chkxattr(char *path);
 #endif
