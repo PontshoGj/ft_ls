@@ -43,29 +43,19 @@ char		**ft_sortarryt(char **s, char *path)
 
 char		**ft_sortarryr(char **s)
 {
-	char	*str;
+	char	**str;
 	size_t	i;
 	size_t	j;
 
-	str = 0;
 	i = 0;
 	j = 0;
 	while (s[j] != 0)
-	{
-		while (s[i] != 0)
-		{
-			if (ft_strcmp(s[j], s[i]) > 0)
-			{
-				str = s[j];
-				s[j] = s[i];
-				s[i] = str;
-			}
-			i++;
-		}
-		i = 0;
 		j++;
-	}
-	return (s);
+	str = (char **)malloc(sizeof(char *) * (j + 1));
+	str[j + 1] = 0;
+	while (j >= 0)
+		str[i++] = s[j--];
+	return (str);
 }
 
 char		**ft_sortarry(char **s)

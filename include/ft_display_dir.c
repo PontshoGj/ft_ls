@@ -10,20 +10,20 @@ static void    displaysl(char *s, char *flag, char *path)
     else if (ft_strspn("lar", flag) == 3)
         return ;
     else if (ft_strspn("lat", flag) == 3)
-        return ;
+        ft_display_long(s, path);
     else if (ft_strspn("lt", flag) == 2 && s[0] != '.')
-        return ;
+        ft_display_long(s, path);
     else if (ft_strspn("lr", flag) == 2 && s[0] != '.')
-        return ;
+        ft_display_long(s, path);
     else if (ft_strspn("ltr", flag) == 3 && s[0] != '.')
         return ;
 }
 
 static void    displaysR(char *s, char *flag)
 {
-    if (ft_strcmp("R", flag) == 0)
+    if (ft_strspn("R", flag) == 1)
         ft_displayrec(s, flag);
-    else if (ft_strspn("Ra", flag) == 2)
+    /*else if (ft_strspn("Ra", flag) == 2)
         return ;
     else if (ft_strspn("Rar", flag) == 3)
         return ;
@@ -32,7 +32,7 @@ static void    displaysR(char *s, char *flag)
     else if (ft_strspn("Ratl", flag) == 4)
         return ;
     else if (ft_strspn("Rl", flag) == 2)
-        return ft_displayrec(s, flag);
+        ft_displayrec(s, flag);
     else if (ft_strspn("Rt", flag) == 2)
         return ;
     else if (ft_strspn("Rr", flag) == 2)
@@ -41,10 +41,12 @@ static void    displaysR(char *s, char *flag)
         return ;
     else if (ft_strspn("Rtrl", flag) == 4)
         return ;
+*/
 }
 
 static void    displaysa(char *s, char *flag)
 {
+    
     if (ft_strcmp("a", flag) == 0)
 		ft_display_all(s, "", "");
     else if (ft_strspn("ar", flag) == 2)
@@ -57,17 +59,17 @@ static void    displaysa(char *s, char *flag)
 
 static void    displays(char *s, char *flag,char *path)
 {
-    //printf("%s", flag);
+    //printf("%zu", ft_strspn("l", flag));
     if (ft_strcmp("", flag) == 0 && s[0] != '.')
-        ft_display_all(s, flag, "");
-    else if (ft_strspn("r", flag) && s[0] != '.')
-        ft_display_all(s, flag, "");
-    else if (ft_strspn("t", flag) && s[0] != '.')
         ft_display_all(s, flag, "");
     else if (ft_strspn("l", flag) == 1)
         displaysl(s, flag, path);
     else if (ft_strspn("a", flag) == 1)
         displaysa(s, flag);
+    (void)s;
+    (void)path;
+    (void)displaysa;
+    (void)displaysl;
 }
 
 void    ft_display_dir(char *str, char *flag)
@@ -79,7 +81,7 @@ void    ft_display_dir(char *str, char *flag)
     arrlist = 0;
     if (ft_strspn("R",  flag) == 1 && isdir(str))
         displaysR(str, flag);
-    else if (isfile(str))
+    if (isfile(str))
         ft_display_all(str, flag, "");
     else if (isdir(str))
     {

@@ -12,7 +12,7 @@
 
 #include "ft_ls.h"
 
-static char	*ftime(char *str)
+char	*ftime(char *str)
 {
 	char	*filetime;
 

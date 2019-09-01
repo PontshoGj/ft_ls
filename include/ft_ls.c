@@ -25,7 +25,7 @@ int main(int argc, char **argv)
     i = 1;
     s = "";
     if (argc == 1)
-        ft_display_dir(".", "");
+        ft_display_dir(".", " ");
     if (argc > 1)
     {
         while (i < argc)
@@ -40,8 +40,8 @@ int main(int argc, char **argv)
             }
             i++;
         }
-        if (i == argc)
-            ft_display_dir(".", s);
+        //if (i == argc)
+        //    ft_display_dir(argv[i], s);
     }
     return (0);
 }

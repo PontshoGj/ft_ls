@@ -39,4 +39,5 @@ char	**ft_arrydirlist(char *p, char c);
 char    ft_chksort(char *flag);
 char    ft_filetype(char *path);
 char    chkxattr(char *path);
+char	*ftime(char *str);
 #endif
