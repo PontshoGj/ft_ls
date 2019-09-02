@@ -2,8 +2,8 @@
 
 static void    displaysl(char *s, char *flag, char *path)
 {
-    //printf("%s\n", s);
-    if (ft_strcmp("l", flag) == 0 && s[0] != '.')
+    //printf("s%ss\n", flag);
+    if (ft_strcmp(" l", flag) == 0 && s[0] != '.')
         ft_display_long(s, path);
     else if (ft_strspn("la", flag) == 2)
         ft_display_long(s, path);
@@ -61,6 +61,7 @@ static void    displaysa(char *s, char *flag)
 
 static void    displays(char *s, char *flag,char *path)
 {
+    //printf("%s", flag);
     if (ft_strcmp(" ", flag) == 0 && s[0] != '.')
         ft_display_all(s, flag, ".");
     else if (ft_strspn("l", flag) == 1)
@@ -82,6 +83,7 @@ void    ft_display_dir(char *str, char *flag)
     
     i = 0;
     arrlist = 0;
+    //printf("a");
     if (ft_strspn("R",  flag) == 1 && isdir(str))
         displaysR(str, flag);
     else if (isfile(str))
@@ -91,10 +93,10 @@ void    ft_display_dir(char *str, char *flag)
     }
     else if (isdir(str))
     {
-        //printf("%s", str);
         arrlist = ft_arrydirlist(str, ft_chksort(flag));
         if (ft_strspn("atr", flag) == 3)
             arrlist =  ft_sortarryr(arrlist);
+        printf("%s:\n", str);
         while (arrlist[i] != 0)
             displays(arrlist[i++], flag, str);
         //printf("\n");

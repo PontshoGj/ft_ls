@@ -20,28 +20,33 @@ static int     checkfiledir(char *s)
 int main(int argc, char **argv)
 {
     int i;
+    int j;
     char *s;
 
     i = 1;
-    s = "";
+    j = 0;
+    s = " ";
     if (argc == 1)
-        ft_display_dir(".", " ");
+        ft_display_dir(".", s);
     if (argc > 1)
     {
-        while (i < argc)
+        while (i < argc && argv[i][0] == '-')
         {
             if(argv[i][0] == '-' && checkfl(argv[i]))
                 s = ft_strjoin(s, ++argv[i]);
-            else if (checkfiledir(argv[i]) == 1)
+            i++;
+        }
+        while (i <= argc)
+        {
+            if (j == 0 && i == argc)
+                ft_display_dir(".", s);
+            else if (i != argc && checkfiledir(argv[i]) == 1)
             {
+                j++;     
                 ft_display_dir(argv[i], s);
-                i++;
-                continue;
             }
             i++;
         }
-        if (i == argc)
-            ft_display_dir(".", s);
     }
     return (0);
 }
