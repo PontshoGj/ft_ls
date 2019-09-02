@@ -19,7 +19,7 @@ $(NAME):
 	ar rc $(NAME) $(OBJ)
 	mv ft_ls.a include
 	cd libft && make re && make clean
-	$(CC) -o ft_ls include/ft_ls.c include/ft_ls.a libft/libft.a -g
+	$(CC) -o ft_ls include/ft_ls.c include/ft_ls.a libft/libft.a
 	rm -f include/*.o
 
 all: $(NAME)
