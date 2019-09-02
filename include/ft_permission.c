@@ -20,7 +20,7 @@ char		*ft_permission(char *filename)
 	if (!(str = malloc(sizeof(char) * 12)))
 		return (0);
 	str[11] = 0;
-	if (stat(filename, &fileStat) < 0)
+	if (lstat(filename, &fileStat) < 0)
 		return (0);
 	str[0] = ft_filetype(filename);
 	str[1] = (fileStat.st_mode & S_IRUSR) ? 'r' : '-';

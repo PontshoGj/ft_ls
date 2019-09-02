@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_chksort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/02 12:46:38 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/09/02 12:47:09 by pmogwere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
-char    ft_chksort(char *flag)
+char	ft_chksort(char *flag)
 {
-    if (ft_strspn("t", flag) == 1)
-        return ('t');
-    else if (ft_strspn("r", flag) == 1)
-        return ('r');
-    return (' ');
+	if (ft_strspn("t", flag) == 1)
+		return ('t');
+	else if (ft_strspn("r", flag) == 1)
+		return ('r');
+	return (' ');
 }

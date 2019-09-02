@@ -15,8 +15,9 @@
 char	*ftime(char *str)
 {
 	char	*filetime;
+	struct stat fileStat;
 
-	if (stat(str, &fileStat) < 0)
+	if (lstat(str, &fileStat) < 0)
 		return (0);
 	filetime = ctime(&fileStat.st_mtime);
 	return (filetime);

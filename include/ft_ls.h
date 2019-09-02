@@ -12,7 +12,6 @@
 # include <sys/xattr.h>
 # include <unistd.h>
 
-struct stat fileStat;
 
 char    *ft_permission(char *filename);
 int     ft_filelink(char *str);

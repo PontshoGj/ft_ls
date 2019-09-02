@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 13:00:14 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/08/26 13:01:43 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/02 12:51:51 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ char		**ft_sortarryt(char **s, char *path)
 	str = 0;
 	i = 0;
 	j = 0;
-	//ft_sortarry(s);
 	while (s[j] != 0)
 	{
 		while (s[i] != 0)
 		{
-			if (ft_strcmp(ft_filetimes(ft_pathname(path,s[j])),\
-			 ft_filetimes(ft_pathname(path,s[i]))) > 0)
+			if (ft_strcmp(ft_filetimes(ft_pathname(path, s[j])),\
+				ft_filetimes(ft_pathname(path, s[i]))) > 0)
 			{
 				str = s[j];
 				s[j] = s[i];

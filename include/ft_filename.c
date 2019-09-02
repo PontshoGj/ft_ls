@@ -16,11 +16,11 @@ char			*ft_filename(char *str)
 {
 	char			*s;
 	int				i;
-	struct stat		filestat;
+	struct stat		fileStat;
 	struct group	*grp;
 	struct passwd	*name;
 
-	if (stat(str, &filestat) < 0)
+	if (lstat(str, &fileStat) < 0)
 		return (0);
 	if ((name = getpwuid(fileStat.st_uid)) == 0)
 		return (0);

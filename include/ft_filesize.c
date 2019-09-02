@@ -15,8 +15,9 @@
 int		ft_filesize(char *str)
 {
 	int	filesize;
+	struct stat fileStat;
 
-	if (stat(str, &fileStat) < 0)
+	if (lstat(str, &fileStat) < 0)
 		return (1);
 	filesize = fileStat.st_size;
 	return (filesize);
