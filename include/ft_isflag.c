@@ -15,7 +15,7 @@
 static int	checkflags(char c)
 {
 	int		i;
-	char	s[5];
+	char	s[6];
 
 	i = 0;
 	s[0] = 'l';
@@ -23,7 +23,8 @@ static int	checkflags(char c)
 	s[2] = 'a';
 	s[3] = 't';
 	s[4] = 'r';
-	while (i < 5)
+	s[5] = '-';
+	while (i < 6)
 	{
 		if (c == s[i++])
 			return (1);
