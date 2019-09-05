@@ -84,20 +84,18 @@ void    ft_display_dir(char *str, char *flag)
     
     i = 0;
     arrlist = 0;
-    //printf("a");
     if (ft_strspn("R",  flag) == 1 && isdir(str))
         displaysR(str, flag);
+    //else if (ft_strspn("l", flag) == 1 && isdir(str))
+
     else if (isfile(str))
-    {
         ft_display_all(str, flag, ".");
-        //printf("\n");
-    }
     else if (isdir(str))
     {
         arrlist = ft_arrydirlist(str, ft_chksort(flag));
-        if (ft_strspn("atr", flag) == 3)
+        if (ft_strspn("tr", flag) == 2)
             arrlist =  ft_sortarryr(arrlist);
-        printf("%s:\n", str);
+        //printf("%s:\n", str);
         while (arrlist[i] != 0)
             displays(arrlist[i++], flag, str);
     }

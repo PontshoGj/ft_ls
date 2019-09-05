@@ -22,6 +22,22 @@ char	*ftime(char *str)
 	filetime = ctime(&fileStat.st_mtime);
 	return (filetime);
 }
+long	fnanotime(char *str)
+{
+	//char **stra;
+	//char *s;
+	//long	filetime;
+	struct timespec fileStat;
+
+	if (timespec(str, &fileStat) < 0)
+		return (0);
+	//filetime = fileStat.tv_nsec;
+	
+	//stra = ft_strsplit(filetime, ' ');
+	//s = ft_strsub(stra[3], 5, ft_strlen(stra[3]));
+	//s = stra[3];
+	return (fileStat.tv_nsec);
+}
 
 char		*ft_filetimes(char *str)
 {

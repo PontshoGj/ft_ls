@@ -14,10 +14,10 @@ static int     checkfiledir(char *s)
     if (isdir(s) || isfile(s))
         return (1);
     printf("ls: %s: No such file or directory\n", s);
-    exit(1);
+    return (0);
 }
 
-int main(int argc, char **argv)
+void ls(int argc, char **argv)
 {
     int i;
     int j;
@@ -40,13 +40,15 @@ int main(int argc, char **argv)
         {
             if (j == 0 && i == argc)
                 ft_display_dir(".", s);
-            else if (i != argc && checkfiledir(argv[i]) == 1)
-            {
-                j++;     
+            else if (i != argc && (j = j + 1) && checkfiledir(argv[i]) == 1)
                 ft_display_dir(argv[i], s);
-            }
             i++;
         }
     }
+}
+
+int main(int ac, char **av)
+{
+    ls(ac, av);
     return (0);
 }
