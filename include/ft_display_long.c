@@ -22,5 +22,8 @@ void	ft_display_long(char *str, char *path)
 	ft_printf("%4s", ft_filename(strpath));
 	ft_printf("%7d", ft_filesize(strpath));
 	ft_printf("%13s", ft_filetimes(strpath));
-	ft_printf(" %s\n", str);
+	ft_printf(" %s", str);
+	if (ft_filetype(strpath) == 'l')
+		ft_printf(" -> %s", ft_getlink(strpath));
+	ft_printf("\n");
 }
