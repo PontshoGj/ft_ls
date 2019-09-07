@@ -26,24 +26,6 @@ static void    displaysR(char *s, char *flag)
     (void)s;
     if (ft_strspn("R", flag) == 1)
         ft_displayrec(s, flag);
-    /*else if (ft_strspn("Ra", flag) == 2)
-        return ;
-    else if (ft_strspn("Rar", flag) == 3)
-        return ;
-    else if (ft_strspn("Rat", flag) == 3)
-        return ;
-    else if (ft_strspn("Ratl", flag) == 4)
-        return ;
-    else if (ft_strspn("Rl", flag) == 2)
-        ft_displayrec(s, flag);
-    else if (ft_strspn("Rt", flag) == 2)
-        return ;
-    else if (ft_strspn("Rr", flag) == 2)
-        return ;
-    else if (ft_strspn("Rtr", flag) == 3)
-        return ;
-    else if (ft_strspn("Rtrl", flag) == 4)
-        return ;*/
 }
 
 static void    displaysa(char *s, char *flag)
@@ -71,8 +53,7 @@ static void    displays(char *s, char *flag,char *path)
         ft_display_all(s, "", "");
     else if (s[0] != '.')
     {
-        ft_display_all(s, flag, ".");
-        
+        ft_display_all(s, flag, ".");       
     }
     (void)s;
     (void)path;

@@ -12,9 +12,13 @@ void  block(char *str, char *flag)
     arrlist = ft_arrydirlist(str, ft_chksort(flag));
     while (arrlist[i] != 0)
     {
-        if (lstat(ft_pathname(str, arrlist[i++]), &fileStat) < 0)
+        if (lstat(ft_pathname(str, arrlist[i]), &fileStat) < 0)
 		    return ;
-        filetime += fileStat.st_blocks;
+        if (ft_strspn("a", flag) == 1)
+            filetime += fileStat.st_blocks;
+        else if (arrlist[i][0] != '.')
+            filetime += fileStat.st_blocks;
+        i++;
     }
     printf("total %lld\n", filetime);
 }
