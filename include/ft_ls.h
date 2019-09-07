@@ -2,6 +2,7 @@
 #define FT_LS_H
 
 # include "../libft/libft.h"
+#include "../ft_printf/src/ft_printf.h"
 # include <dirent.h>
 # include <stdio.h>
 # include <sys/stat.h>
@@ -40,4 +41,5 @@ char    ft_filetype(char *path);
 char    chkxattr(char *path);
 char	*ftime(char *str);
 long   	fnanotime(char *str);
+void    ft_longdisplay(char *path, char *flag);
 #endif

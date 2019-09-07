@@ -24,19 +24,14 @@ char	*ftime(char *str)
 }
 long	fnanotime(char *str)
 {
-	//char **stra;
-	//char *s;
-	//long	filetime;
-	struct timespec fileStat;
+	struct stat fileStat;
+	struct timespec filetime;
 
-	if (timespec(str, &fileStat) < 0)
+	if (lstat(str, &fileStat) < 0)
 		return (0);
-	//filetime = fileStat.tv_nsec;
+	filetime = fileStat.st_mtimespec;
 	
-	//stra = ft_strsplit(filetime, ' ');
-	//s = ft_strsub(stra[3], 5, ft_strlen(stra[3]));
-	//s = stra[3];
-	return (fileStat.tv_nsec);
+	return (filetime.tv_nsec);
 }
 
 char		*ft_filetimes(char *str)

@@ -10,6 +10,7 @@ SRC=include/ft_filesize.c include/ft_filetimes.c include/ft_filename.c include/f
 	include/ft_display_all.c include/ft_display_dir.c include/ft_isflag.c include/ft_filetype.c include/ft_chkxattr.c \
 	include/ft_pathname.c include/ft_display_long.c include/ft_isdir.c include/ft_rec.c include/ft_isfile.c \
 	include/ft_islnk.c include/ft_sortarry.c include/ft_arrydirlist.c include/ft_dirnu.c include/ft_chksort.c \
+	include/ft_longdisplay.c \
 
 OBJ=$(SRC:.c=.o)
 
@@ -19,7 +20,8 @@ $(NAME):
 	ar rc $(NAME) $(OBJ)
 	mv ft_ls.a include
 	cd libft && make re && make clean
-	$(CC) -o ft_ls include/ft_ls.c include/ft_ls.a libft/libft.a
+	cd ft_printf && make re && make clean
+	$(CC) -o ft_ls include/ft_ls.c include/ft_ls.a libft/libft.a ft_printf/src/ft_printf.a
 	rm -f include/*.o
 
 all: $(NAME)

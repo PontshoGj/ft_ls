@@ -27,5 +27,5 @@ void			ft_display_all(char *str, char *flag, char *path)
 	if (ft_strspn("l", flag) == 1)
 		ft_display_long(str, path);
 	else
-		printf("%-24s", str);
+		ft_printf("%-24s", str);
 }

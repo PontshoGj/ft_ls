@@ -70,7 +70,10 @@ static void    displays(char *s, char *flag,char *path)
     else if (ft_strspn("tr", flag) == 1 && s[0] != '.')
         ft_display_all(s, "", "");
     else if (s[0] != '.')
+    {
         ft_display_all(s, flag, ".");
+        
+    }
     (void)s;
     (void)path;
     (void)displaysa;
@@ -81,23 +84,39 @@ void    ft_display_dir(char *str, char *flag)
 {
     int i;
     char **arrlist;
+    static int j;
     
     i = 0;
+    if (!j)
+        j = 0;
     arrlist = 0;
     if (ft_strspn("R",  flag) == 1 && isdir(str))
+    {
         displaysR(str, flag);
-    //else if (ft_strspn("l", flag) == 1 && isdir(str))
-
+        j++;
+        ft_printf("\n\n");    
+    }
+    else if (ft_strspn("l", flag) == 1 && isdir(str))
+    {
+        ft_longdisplay(str, flag);
+        j++;
+    }
     else if (isfile(str))
+    {
         ft_display_all(str, flag, ".");
+        //printf("\n");
+        j++;
+    }
     else if (isdir(str))
     {
         arrlist = ft_arrydirlist(str, ft_chksort(flag));
         if (ft_strspn("tr", flag) == 2)
             arrlist =  ft_sortarryr(arrlist);
-        //printf("%s:\n", str);
+        if (j != 0)
+            ft_printf("\n%s:\n", str);
         while (arrlist[i] != 0)
             displays(arrlist[i++], flag, str);
+        ft_printf("\n");
     }
     (void)str;
     (void)flag;

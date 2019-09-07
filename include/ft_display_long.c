@@ -17,10 +17,10 @@ void	ft_display_long(char *str, char *path)
 	char *strpath;
 
 	strpath = ft_pathname(path, str);
-	printf("%s", ft_permission(strpath));
-	printf("%4d ", ft_filelink(strpath));
-	printf("%4s", ft_filename(strpath));
-	printf("%7d", ft_filesize(strpath));
-	printf("%13s", ft_filetimes(strpath));
-	printf(" %s\n", str);
+	ft_printf("%s", ft_permission(strpath));
+	ft_printf("%4d ", ft_filelink(strpath));
+	ft_printf("%4s", ft_filename(strpath));
+	ft_printf("%7d", ft_filesize(strpath));
+	ft_printf("%13s", ft_filetimes(strpath));
+	ft_printf(" %s\n", str);
 }

@@ -40,7 +40,7 @@ static void	ft_recd(char **str, char *s, char *flag)
 				&& str[i][0] != '.' \
 				&& ft_islink(ft_pathname(s, str[i])) == 0)
 		{
-			printf("\n\n%s:\n", ft_pathname(s, str[i]));
+			ft_printf("\n%s:\n", ft_pathname(s, str[i]));
 			ft_displayrec(ft_pathname(s, str[i]), flag);
 		}
 		i++;
@@ -54,8 +54,12 @@ void		ft_displayrec(char *ss, char *flag)
 	s = ft_arrydirlist(ss, ft_chksort(flag));
 	if (s == 0)
 		return ;
+
 	if (ft_strspn("atr", flag) == 3)
 		s = ft_sortarryr(s);
-	ft_printdir(s, flag, ss);
+	if (ft_strspn("lR", flag) == 2)
+		ft_longdisplay(ss, flag);
+	else
+		ft_printdir(s, flag, ss);
 	ft_recd(s, ss, flag);
 }
