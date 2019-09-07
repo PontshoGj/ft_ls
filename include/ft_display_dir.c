@@ -2,64 +2,31 @@
 
 static void    displaysl(char *s, char *flag, char *path)
 {
-    //printf("s%ss\n", flag);
     if (ft_strcmp(" l", flag) == 0 && s[0] != '.')
         ft_display_long(s, path);
-    else if (ft_strspn("la", flag) == 2)
-        ft_display_long(s, path);
-    else if (ft_strspn("lar", flag) == 3)
-        return ;
-    else if (ft_strspn("lat", flag) == 3)
-        ft_display_long(s, path);
-    else if (ft_strspn("lt", flag) == 2 && s[0] != '.')
-        ft_display_long(s, path);
-    else if (ft_strspn("lr", flag) == 2 && s[0] != '.')
-        ft_display_long(s, path);
-    else if (ft_strspn("ltr", flag) == 3 && s[0] != '.')
-        return ;
 }
 
 static void    displaysR(char *s, char *flag)
 {
-    //printf("%s", flag);
-    (void)flag;
-    (void)s;
     if (ft_strspn("R", flag) == 1)
         ft_displayrec(s, flag);
 }
 
 static void    displaysa(char *s, char *flag)
 {
-    //printf("%s", s);
     if (ft_strcmp(" a", flag) == 0)
 		ft_display_all(s, "", "");
-    else if (ft_strspn("ar", flag) == 2)
-        ft_display_all(s, "", "");
-    else if (ft_strspn("at", flag) == 2)
-        ft_display_all(s, "", "");
-    else if (ft_strspn("atr", flag) == 3)
-        return ft_display_all((s), "", "");
 }
 
 static void    displays(char *s, char *flag,char *path)
 {
-    //printf("%s", flag);
-    
     if (ft_strspn("l", flag) == 1)
         displaysl(s, flag, path);
     else if (ft_strspn("a", flag) == 1)
         displaysa(s, flag);
-    else if (ft_strspn("tr", flag) == 1 && s[0] != '.')
-        ft_display_all(s, "", "");
     else if (s[0] != '.')
-    {
         ft_display_all(s, flag, ".");       
-    }
-    (void)s;
-    (void)path;
-    (void)displaysa;
-    (void)displaysl;
-}
+ }
 
 void    ft_display_dir(char *str, char *flag)
 {
@@ -99,8 +66,4 @@ void    ft_display_dir(char *str, char *flag)
             displays(arrlist[i++], flag, str);
         ft_printf("\n");
     }
-    (void)str;
-    (void)flag;
-    (void)displaysR;
-    (void)displays;
 }
