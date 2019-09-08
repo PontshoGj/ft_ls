@@ -10,7 +10,7 @@
 
 int		ft_printf(const char *str, ...);
 void    outint(char s, va_list args, int i);
-void    outcharst(char s, va_list args, int i, int length);
+void    outcharst(va_list args, int i, int length);
 void    outuint(char s, va_list args, char hex, int space, int length);
 void    outdoub(char s, va_list args, int size, int z);
 void    printstr(char s, va_list args);
@@ -21,4 +21,7 @@ void    padd(const char **str, va_list args);
 void    paddfloat(const char **str, va_list args);
 void    floatpre(const char **str, va_list args, int i);
 void    givespace(int i, int space);
+void    ft_printlong(char **s, va_list args);
+void    ft_outputlong(va_list args, int space);
+void    ft_outputlonghex(va_list args, int space, char hex);
 #endif

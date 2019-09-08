@@ -59,11 +59,17 @@ void    ft_display_dir(char *str, char *flag)
     {
         arrlist = ft_arrydirlist(str, ft_chksort(flag));
         if (ft_strspn("tr", flag) == 2)
-            arrlist =  ft_sortarryr(arrlist);
+            ft_sortarryr(arrlist);
         if (j != 0)
             ft_printf("\n%s:\n", str);
         while (arrlist[i] != 0)
-            displays(arrlist[i++], flag, str);
+        {
+            displays(arrlist[i], flag, str);
+            free(arrlist[i++]);
+        }
+        //free(flag);
+        //free(str);
+        //ft_free2d(arrlist);
         ft_printf("\n");
     }
 }

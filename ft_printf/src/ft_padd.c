@@ -3,11 +3,15 @@
 void        padd(const char **str, va_list args)
 {
     char *s;
+    char *temp;
 
     s = "";
+    temp = s;
     while (!(ft_strspn(&(*str[0]), "scdif.")))
     {
+        temp = s;
         s = ft_strjoin(s,&(*str[0]));
+        free(s);
         *str += 1;
     }
     if (ft_strspn(&(*str[0]), "scdi"))

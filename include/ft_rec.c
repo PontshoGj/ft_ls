@@ -30,19 +30,23 @@ static void	ft_printdir(char **str, char *flag, char *path)
 static void	ft_recd(char **str, char *s, char *flag)
 {
 	size_t	i;
+	char 	*path;
 
 	i = 1;
+	(void)path;
 	while (str[i] != 0)
 	{
-		if (isdir(ft_pathname(s, str[i])) \
+		path = ft_pathname(s, str[i]);
+		if (isdir(path) \
 				&& ft_strcmp(str[i], ".") != 0 \
 				&& ft_strcmp(str[i], "..") != 0 \
 				&& str[i][0] != '.' \
-				&& ft_islink(ft_pathname(s, str[i])) == 0)
+				&& ft_islink(path) == 0)
 		{
 			ft_printf("\n%s:\n", ft_pathname(s, str[i]));
-			ft_displayrec(ft_pathname(s, str[i]), flag);
+			ft_displayrec(path, flag);
 		}
+		free(path);
 		i++;
 	}
 }
@@ -62,4 +66,5 @@ void		ft_displayrec(char *ss, char *flag)
 	else
 		ft_printdir(s, flag, ss);
 	ft_recd(s, ss, flag);
+	ft_free2d(s);
 }

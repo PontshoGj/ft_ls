@@ -20,7 +20,8 @@ void  block(char *str, char *flag)
             filetime += fileStat.st_blocks;
         i++;
     }
-    printf("total %lld\n", filetime);
+    ft_free2d(arrlist);
+    ft_printf("total %lld\n", filetime);
 }
 
 void    ft_longdisplay(char *path, char *flag)
@@ -37,6 +38,8 @@ void    ft_longdisplay(char *path, char *flag)
             ft_display_long(arrlist[i], path);
         else if (arrlist[i][0] != '.')
             ft_display_long(arrlist[i], path);
+        //free(arrlist[i]);
         i++;
     }
+    //ft_free2d(arrlist);
 }

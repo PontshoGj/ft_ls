@@ -1,12 +1,11 @@
 
 #include "ft_printf.h"
 
-void    outcharst(char s, va_list args, int space ,int length)
+void    outcharst(va_list args, int space ,int length)
 {
     int i;
     char *str; 
     
-    (void)s;
     str = va_arg(args, char *);
     i = ft_strlen(str);
     if (length == 0)
@@ -28,4 +27,5 @@ void    outcharst(char s, va_list args, int space ,int length)
         return;
     }
     ft_putstr(str);
+    free(str);
 }

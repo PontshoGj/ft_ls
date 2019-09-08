@@ -22,10 +22,12 @@ void ls(int argc, char **argv)
     int i;
     int j;
     char *s;
+    char **temp;
 
     i = 1;
     j = 0;
     s = " ";
+    temp = argv;
     if (argc == 1)
         ft_display_dir(".", s);
     if (argc > 1)
@@ -33,7 +35,11 @@ void ls(int argc, char **argv)
         while (i < argc && argv[i][0] == '-')
         {
             if(argv[i][0] == '-' && checkfl(argv[i]))
+            {
+                //temp = s;
+                //free(s);
                 s = ft_strjoin(s, ++argv[i]);
+            }
             i++;
         }
         while (i <= argc)
@@ -45,10 +51,12 @@ void ls(int argc, char **argv)
             i++;
         }
     }
+    //ft_free2d(temp);
 }
 
 int main(int ac, char **av)
 {
     ls(ac, av);
+    sleep(10);
     return (0);
 }

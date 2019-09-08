@@ -38,11 +38,17 @@ char		*ft_filetimes(char *str)
 {
 	char	**strarray;
 	char	*strtime;
+	char 	*temp;
 
 	strarray = ft_strsplit(ftime(str), ' ');
 	strtime = ft_strcat(strarray[1], " ");
+	temp = strtime;
 	strtime = ft_strjoin(strtime, strarray[2]);
+	free(temp);
+	temp = strtime;
 	strtime = ft_strcat(strtime, " ");
 	strtime = ft_strjoin(strtime, ft_strsub(strarray[3], 0, 5));
+	free(temp);
+	ft_free2d(strarray);
 	return (strtime);
 }
