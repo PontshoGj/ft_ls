@@ -113,4 +113,6 @@ char			*ft_itoa_base(int value, int base, char h);
 int				ft_intlen_base(int n, int base);
 void			ft_putstrc(char *s, int size);
 void			ft_putstrc_fd(char *s, int fd, int size);
+long long		ft_lenlong_base(long long n, int base);
+char			*ft_longtoa_base(long long i, int base, char h);
 #endif
