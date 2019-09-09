@@ -43,5 +43,4 @@ char	*ftime(char *str);
 long   	fnanotime(char *str);
 void    ft_longdisplay(char *path, char *flag);
 char    *ft_getlink(char *path);
-void    ft_free2d(char **s);
 #endif

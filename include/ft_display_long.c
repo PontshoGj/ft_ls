@@ -15,24 +15,15 @@
 void	ft_display_long(char *str, char *path)
 {
 	char *strpath;
-	char *s;
 
-	strpath = ft_pathname(path, str); 
+	strpath = ft_pathname(path, str);
 	ft_printf("%s", ft_permission(strpath));
 	ft_printf("%4d ", ft_filelink(strpath));
-	s = ft_filename(strpath);
-	ft_printf("%4s", s);
-	free(s);
+	ft_printf("%4s", ft_filename(strpath));
 	ft_printf("%7d", ft_filesize(strpath));
-	s = ft_filetimes(strpath);
-	ft_printf("%13s", s);
-	free(s);
+	ft_printf("%13s", ft_filetimes(strpath));
 	ft_printf(" %s", str);
 	if (ft_filetype(strpath) == 'l')
-	{
-		s = ft_getlink(strpath);
-		ft_printf(" -> %s", s);
-	}
+		ft_printf(" -> %s", ft_getlink(strpath));
 	ft_printf("\n");
-	free(strpath);
 }
