@@ -20,15 +20,8 @@ char		*ft_pathname(char *str, char *dirname)
 	s = ft_strnew(1);
 	temp = s;
 	s = ft_strjoin(s, str);
-	free(temp);
 	if (s[ft_strlen(s)] != '/')
-	{
-		temp = s;
 		s = ft_strjoin(s, "/");
-		free(temp);
-	}
-	temp = s;
 	s = ft_strjoin(s, dirname);
-	free(temp);
 	return (s);
 }

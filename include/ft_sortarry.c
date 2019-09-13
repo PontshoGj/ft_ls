@@ -15,51 +15,50 @@
 char		**ft_sortarryt(char **s, char *path)
 {
 	char	*str;
-	char 	*temp;
-	char	*temp2;
-	char	*path1;
-	char	*path2;
 	size_t	i;
 	size_t	j;
 
 	str = 0;
 	i = 0;
 	j = 0;
-	temp = 0;
-	temp2 = 0;
 	while (s[j] != 0)
 	{
-		path1 = ft_pathname(path, s[j]);
-		temp = ft_filetimes(path1);
+		//printf("%s %ld\n", s[j],fnanotime(ft_pathname(path, s[j])));
+		//printf("%s\n", ft_filetimes(ft_pathname(path, s[j])));
+		
 		while (s[i] != 0)
 		{
-			path2 = ft_pathname(path, s[i]);
-			temp2 = ft_filetimes(path2);
-			if (ft_strcmp(temp, temp2) > 0) 
+			//printf("%s %ld\n", s[i],fnanotime(ft_pathname(path, s[i])));
+			//printf("%s\n", ft_filetimes(ft_pathname(path, s[j])));
+			if (ft_strcmp(ft_filetimes(ft_pathname(path, s[j])), \
+				ft_filetimes(ft_pathname(path, s[i]))) > 0)//  && 
 			{
 					str = s[j];
 					s[j] = s[i];
 					s[i] = str;
 				
 			}
-			/*else if (ft_strcmp(temp, temp2) < 0)
+			else if (ft_strcmp(ft_filetimes(ft_pathname(path, s[j])), \
+				ft_filetimes(ft_pathname(path, s[i]))) < 0)
+				{i++;
+				continue;}
+			//if (fnanotime(ft_pathname(path, s[j])) <
+			//	fnanotime(ft_pathname(path, s[j])))
+			else// (ft_strcmp(ft_filetimes(ft_pathname(path, s[j])), \
+				//ft_filetimes(ft_pathname(path, s[i]))) < 0)
 			{
-					i++;
-				continue;
-			}*/
-			/*else{
-				if (fnanotime(path1) > fnanotime(path2))
+				//printf("%s\n", s[i]);//,fnanotime(ft_pathname(path, s[i])));
+				//printf("%s %ld\n", s[j],fnanotime(ft_pathname(path, s[j])));
+				if (fnanotime(ft_pathname(path, s[j])) >
+					fnanotime(ft_pathname(path, s[j])))
 				{
+					//printf("%s\n", s[i]);
 					str = s[j];
 					s[j] = s[i];
 					s[i] = str;}
-			}*/
-			free(path2);
-			free(temp2);
+			}
 			i++;
 		}
-		free(path1);
-		free(temp);
 		i = 0;
 		j++;
 	}

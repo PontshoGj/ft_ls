@@ -27,7 +27,7 @@ char			*ft_filename(char *str)
 	if ((grp = getgrgid(fileStat.st_gid)) == 0)
 		return (0);
 	i = ft_strlen(name->pw_name) + ft_strlen(grp->gr_name) + 1;
-	s = (char *)malloc(sizeof(char) * i);
+	s = (char *)malloc(sizeof(char) * i + 2);
 	s[i] = 0;
 	s = ft_strjoin(name->pw_name, "  ");
 	s = ft_strjoin(s, grp->gr_name);

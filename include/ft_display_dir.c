@@ -21,6 +21,9 @@ static void    displaysl(char *s, char *flag, char *path)
 
 static void    displaysR(char *s, char *flag)
 {
+    //printf("%s", flag);
+    (void)flag;
+    (void)s;
     if (ft_strspn("R", flag) == 1)
         ft_displayrec(s, flag);
 }
@@ -52,6 +55,10 @@ static void    displays(char *s, char *flag,char *path)
     {
         ft_display_all(s, flag, ".");       
     }
+    (void)s;
+    (void)path;
+    (void)displaysa;
+    (void)displaysl;
 }
 
 void    ft_display_dir(char *str, char *flag)
@@ -85,12 +92,15 @@ void    ft_display_dir(char *str, char *flag)
     {
         arrlist = ft_arrydirlist(str, ft_chksort(flag));
         if (ft_strspn("tr", flag) == 2)
-            ft_sortarryr(arrlist);
+            arrlist =  ft_sortarryr(arrlist);
         if (j != 0)
             ft_printf("\n%s:\n", str);
         while (arrlist[i] != 0)
             displays(arrlist[i++], flag, str);
-        ft_freearry(arrlist);
         ft_printf("\n");
     }
+    (void)str;
+    (void)flag;
+    (void)displaysR;
+    (void)displays;
 }

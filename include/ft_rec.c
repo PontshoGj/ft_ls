@@ -45,8 +45,8 @@ static void	ft_recd(char **str, char *s, char *flag)
 			ft_printf("\n%s:\n", path);
 			ft_displayrec(path, flag);
 		}
-		free(path);
 		i++;
+		free(path);
 	}
 }
 
@@ -57,9 +57,8 @@ void		ft_displayrec(char *ss, char *flag)
 	s = ft_arrydirlist(ss, ft_chksort(flag));
 	if (s == 0)
 		return ;
-
 	if (ft_strspn("atr", flag) == 3)
-		ft_sortarryr(s);
+		s = ft_sortarryr(s);
 	if (ft_strspn("lR", flag) == 2)
 		ft_longdisplay(ss, flag);
 	else

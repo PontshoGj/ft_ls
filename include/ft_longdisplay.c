@@ -20,6 +20,7 @@ void  block(char *str, char *flag)
             filetime += fileStat.st_blocks;
         i++;
     }
+    ft_freearry(arrlist);
     printf("total %lld\n", filetime);
 }
 
@@ -39,4 +40,5 @@ void    ft_longdisplay(char *path, char *flag)
             ft_display_long(arrlist[i], path);
         i++;
     }
+    ft_freearry(arrlist);
 }

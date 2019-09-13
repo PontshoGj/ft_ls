@@ -30,6 +30,7 @@ long	fnanotime(char *str)
 	if (lstat(str, &fileStat) < 0)
 		return (0);
 	filetime = fileStat.st_mtimespec;
+	
 	return (filetime.tv_nsec);
 }
 
@@ -37,17 +38,11 @@ char		*ft_filetimes(char *str)
 {
 	char	**strarray;
 	char	*strtime;
-	char	*temp;
 
 	strarray = ft_strsplit(ftime(str), ' ');
 	strtime = ft_strcat(strarray[1], " ");
-	temp = strtime;
 	strtime = ft_strjoin(strtime, strarray[2]);
-	free(temp);
 	strtime = ft_strcat(strtime, " ");
-	temp = strtime;
 	strtime = ft_strjoin(strtime, ft_strsub(strarray[3], 0, 5));
-	free(temp);
-	ft_freearry(strarray);
 	return (strtime);
 }
