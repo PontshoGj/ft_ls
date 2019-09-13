@@ -58,7 +58,7 @@ void    ft_display_dir(char *str, char *flag)
         ft_printf("\n");
         ft_freearry(arrlist);
     }
-    //free(flag);
+    free(flag);
 }
 
 /*int main(void)
