@@ -55,6 +55,6 @@ void ls(int argc, char **argv)
 int main(int ac, char **av)
 {
     ls(ac, av);
-    sleep(20);
+    //sleep(20);
     return (0);
 }
