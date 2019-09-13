@@ -6,19 +6,22 @@ void  block(char *str, char *flag)
     int i;
     long long filetime;
 	struct stat fileStat;
+    char    *temp;
 
 	i = 0;
     filetime = 0;
     arrlist = ft_arrydirlist(str, ft_chksort(flag));
     while (arrlist[i] != 0)
     {
-        if (lstat(ft_pathname(str, arrlist[i]), &fileStat) < 0)
+        temp = ft_pathname(str, arrlist[i]);
+        if (lstat(temp, &fileStat) < 0)
 		    return ;
         if (ft_strspn("a", flag) == 1)
             filetime += fileStat.st_blocks;
         else if (arrlist[i][0] != '.')
             filetime += fileStat.st_blocks;
         i++;
+        free((char *)temp);
     }
     ft_freearry(arrlist);
     printf("total %lld\n", filetime);

@@ -15,7 +15,7 @@
 char			*ft_filename(char *str)
 {
 	char			*s;
-	int				i;
+	char			*temp;
 	struct stat		fileStat;
 	struct group	*grp;
 	struct passwd	*name;
@@ -26,10 +26,12 @@ char			*ft_filename(char *str)
 		return (0);
 	if ((grp = getgrgid(fileStat.st_gid)) == 0)
 		return (0);
-	i = ft_strlen(name->pw_name) + ft_strlen(grp->gr_name) + 1;
-	s = (char *)malloc(sizeof(char) * i + 2);
-	s[i] = 0;
+	s = (char *)malloc(sizeof(char) * ft_strlen(name->pw_name) + ft_strlen(grp->gr_name) + 3);
+	temp = s;
 	s = ft_strjoin(name->pw_name, "  ");
+	free((char *)temp);
+	temp = s;
 	s = ft_strjoin(s, grp->gr_name);
+	free((char *)temp);
 	return (s);
 }

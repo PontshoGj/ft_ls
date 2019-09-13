@@ -12,24 +12,6 @@
 
 #include "ft_ls.h"
 
-int 			ft_islink(char *s)
-{
-	struct stat kk;
-
-	lstat(s, &kk);
-	if (kk.st_mode & S_IFLNK)
-		return (1);
-	return (0);
-}
-
-int				isfile(char *s)
-{
-	struct stat	kk;
-
-	lstat(s, &kk);
-	return ((S_ISREG(kk.st_mode)) ? 1 : 0);
-}
-
 int	isdir(char *s)
 {
 	struct stat kk;

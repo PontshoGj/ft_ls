@@ -39,15 +39,17 @@ char		*ft_filetimes(char *str)
 	char	**strarray;
 	char	*strtime;
 	char	*temp;
+	char	*sub;
 
 	strarray = ft_strsplit(ftime(str), ' ');
 	temp = ft_strcat(strarray[1], " ");
 	strtime = ft_strjoin(temp, strarray[2]);
-	//free((char *)temp);
-	temp = strtime;
 	strtime = ft_strcat(strtime, " ");
-	strtime = ft_strjoin(temp, ft_strsub(strarray[3], 0, 5));
+	temp = strtime;
+	sub = ft_strsub(strarray[3], 0, 5);
+	strtime = ft_strjoin(temp, sub);
 	free((char *)temp);
+	free((char *)sub);
 	ft_freearry(strarray);
 	return (strtime);
 }
