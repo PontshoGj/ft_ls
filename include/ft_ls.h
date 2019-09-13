@@ -40,7 +40,7 @@ char    ft_chksort(char *flag);
 char    ft_filetype(char *path);
 char    chkxattr(char *path);
 char	*ftime(char *str);
-long   	fnanotime(char *str);
+char   	*fnanotime(char *str);
 void    ft_longdisplay(char *path, char *flag);
 char    *ft_getlink(char *path);
 void    ft_freearry(char **s);

@@ -15,6 +15,8 @@
 char		**ft_sortarryt(char **s, char *path)
 {
 	char	*str;
+	char	*path1;
+	char	*path2;
 	size_t	i;
 	size_t	j;
 
@@ -23,33 +25,21 @@ char		**ft_sortarryt(char **s, char *path)
 	j = 0;
 	while (s[j] != 0)
 	{
+		path1 = ft_pathname(path, s[j]);
 		while (s[i] != 0)
 		{
-			if (ft_strcmp(ft_filetimes(ft_pathname(path, s[j])), \
-				ft_filetimes(ft_pathname(path, s[i]))) > 0)
+			path2 = ft_pathname(path, s[i]);
+			if (ft_strcmp(fnanotime(path1), fnanotime(path2)))
 			{
 					str = s[j];
 					s[j] = s[i];
 					s[i] = str;
 				
 			}
-			else if (ft_strcmp(ft_filetimes(ft_pathname(path, s[j])), \
-				ft_filetimes(ft_pathname(path, s[i]))) < 0)
-				{	i++;
-					continue;
-				}
-			else
-			{
-				if (fnanotime(ft_pathname(path, s[j])) >
-					fnanotime(ft_pathname(path, s[j])))
-				{
-					str = s[j];
-					s[j] = s[i];
-					s[i] = str;
-				}
-			}
+			free(path2);
 			i++;
 		}
+		free(path1);
 		i = 0;
 		j++;
 	}

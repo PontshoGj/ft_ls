@@ -22,16 +22,18 @@ char	*ftime(char *str)
 	filetime = ctime(&fileStat.st_mtime);
 	return (filetime);
 }
-long	fnanotime(char *str)
+char	*fnanotime(char *str)
 {
 	struct stat fileStat;
 	struct timespec filetime;
+	char	*s;
 
 	if (lstat(str, &fileStat) < 0)
 		return (0);
 	filetime = fileStat.st_mtimespec;
-	
-	return (filetime.tv_nsec);
+	s = ft_strjoin(ftime(str), " ");
+	//s = ft_strjoin(s, ft_longtoa_base(filetime.tv_nsec, 10, 'c'));
+	return (s);
 }
 
 char		*ft_filetimes(char *str)
@@ -53,3 +55,9 @@ char		*ft_filetimes(char *str)
 	ft_freearry(strarray);
 	return (strtime);
 }
+
+/*int main(void)
+{
+	printf("%d", ft_strcmp(fnanotime("a.out"), fnanotime("ft_ls")));
+	return 0;
+}*/

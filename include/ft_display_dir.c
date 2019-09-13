@@ -17,7 +17,7 @@ static void    displays(char *s, char *flag)
     if (ft_strspn("a", flag))
         displaysa(s, flag);
     else if (s[0] != '.')
-        ft_display_all(s, flag, ".");       
+        ft_display_all(s, flag, ".");
 }
 
 void    ft_display_dir(char *str, char *flag)
@@ -49,8 +49,8 @@ void    ft_display_dir(char *str, char *flag)
     else if (isdir(str))
     {
         arrlist = ft_arrydirlist(str, ft_chksort(flag));
-        if (ft_strspn("tr", flag) == 2)
-            arrlist =  ft_sortarryr(arrlist);
+        //if (ft_strspn("tr", flag) == 2)
+        //    ft_sortarryr(arrlist);
         if (j != 0)
             ft_printf("\n%s:\n", str);
         while (arrlist[i] != 0)
@@ -58,5 +58,12 @@ void    ft_display_dir(char *str, char *flag)
         ft_printf("\n");
         ft_freearry(arrlist);
     }
-    free(flag);
+    //free(flag);
 }
+
+/*int main(void)
+{
+    ft_display_dir(".", "t");
+    sleep(10);
+    return 0;
+}*/
