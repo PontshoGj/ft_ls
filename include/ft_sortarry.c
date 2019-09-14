@@ -6,11 +6,20 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 13:00:14 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/02 12:51:51 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/14 11:37:45 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+void		swap(char **s, char **s2)
+{
+	char	*str;
+
+	str = *s;
+	*s = *s2;
+	*s2 = str;
+}
 
 char		**ft_sortarryt(char **s, char *path)
 {
@@ -29,12 +38,12 @@ char		**ft_sortarryt(char **s, char *path)
 		while (s[i] != 0)
 		{
 			path2 = ft_pathname(path, s[i]);
-			if (ft_strcmp(fnanotime(path1), fnanotime(path2)))
+			if (fsectime(path1) > fsectime(path2))
+				swap(&s[j], &s[i]);
+			else if (fsectime(path1) == fsectime(path2))
 			{
-					str = s[j];
-					s[j] = s[i];
-					s[i] = str;
-				
+				if (ft_strcmp(s[j], s[i]))
+					swap(&s[i], &s[j]);
 			}
 			free(path2);
 			i++;
@@ -77,11 +86,7 @@ char		**ft_sortarry(char **s)
 		while (s[i] != 0)
 		{
 			if (ft_strcmp(s[j], s[i]) < 0)
-			{
-				str = s[j];
-				s[j] = s[i];
-				s[i] = str;
-			}
+				swap(&s[j], &s[i]);
 			i++;
 		}
 		i = 0;

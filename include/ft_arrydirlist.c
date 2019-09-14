@@ -42,7 +42,6 @@ char				**ft_arrydirlist(char *p, char c)
 		}
 		closedir(d);
 		s[i] = 0;
-		ft_sortarry(s);
 		return (ft_sorttype(s, c, p));
 	}
 	printf("ls: Data: Permission denied\n");
