@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 10:39:09 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 10:45:39 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/16 10:38:47 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		displaysr(char *s, char *flag)
 {
-	if (ft_strspn("R", flag) == 1)
+	if (ft_strspn("R", flag))
 		ft_displayrec(s, flag);
 }
 
@@ -32,6 +32,19 @@ static void		displays(char *s, char *flag)
 		ft_display_all(s, flag, ".");
 }
 
+static void		prin(char *str, char *flag)
+{
+	if (ft_strspn("R", flag) && isdir(str))
+	{
+		displaysr(str, flag);
+		ft_printf("\n\n");
+	}
+	else if (ft_strspn("l", flag) && isdir(str))
+		ft_longdisplay(str, flag);
+	else if (isfile(str))
+		ft_display_all(str, flag, ".");
+}
+
 void			ft_display_dir(char *str, char *flag)
 {
 	int			i;
@@ -41,27 +54,16 @@ void			ft_display_dir(char *str, char *flag)
 	i = 0;
 	if (!j)
 		j = 0;
-	if (ft_strspn("R", flag) == 1 && isdir(str))
+	if ((ft_strspn("Rl", flag) && isdir(str)) || isfile(str))
 	{
-		displaysr(str, flag);
-		j++;
-		ft_printf("\n\n");
-	}
-	else if (ft_strspn("l", flag) == 1 && isdir(str))
-	{
-		ft_longdisplay(str, flag);
-		j++;
-	}
-	else if (isfile(str))
-	{
-		ft_display_all(str, flag, " ");
+		prin(str, flag);
 		j++;
 	}
 	else if (isdir(str))
 	{
 		arrlist = ft_arrydirlist(str, ft_chksort(flag));
 		if (ft_strspn("tr", flag) == 2)
-			ft_sortarryr(arrlist);
+			arrlist = ft_sortarryr(arrlist);
 		if (j != 0)
 			ft_printf("\n%s:\n", str);
 		while (arrlist[i] != 0)
@@ -69,5 +71,4 @@ void			ft_display_dir(char *str, char *flag)
 		ft_printf("\n");
 		ft_freearry(arrlist);
 	}
-	free(flag);
 }

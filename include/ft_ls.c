@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 11:02:24 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 11:09:05 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/16 10:36:26 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,32 @@ static int	checkfiledir(char *s)
 		return (1);
 	ft_printf("ls: %s: No such file or directory\n", s);
 	return (0);
+}
+
+static void	printdir(char **dir, char *flag)
+{
+	int		i;
+
+	i = 0;
+	if (!*dir)
+	{
+		ft_display_dir(".", flag);
+		return ;
+	}
+	ft_sortarry(dir);
+	while (dir[i])
+	{
+		if (checkfiledir(dir[i]) == 0)
+			dir[i] = "NULL";
+		i++;
+	}
+	i = 0;
+	while (dir[i])
+	{
+		if (ft_strcmp(dir[i], "NULL"))
+			ft_display_dir(dir[i], flag);
+		i++;
+	}
 }
 
 void		ls(int argc, char **argv)
@@ -55,19 +81,14 @@ void		ls(int argc, char **argv)
 			}
 			i++;
 		}
-		while (i <= argc)
-		{
-			if (j == 0 && i == argc)
-				ft_display_dir(".", s);
-			else if (i != argc && (j = j + 1) && checkfiledir(argv[i]) == 1)
-				ft_display_dir(argv[i], s);
-			i++;
-		}
+		printdir(argv + i, s);
 	}
+	free(s);
 }
 
 int			main(int ac, char **av)
 {
 	ls(ac, av);
+	//sleep(20);
 	return (0);
 }

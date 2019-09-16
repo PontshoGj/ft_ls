@@ -69,6 +69,7 @@ char		**ft_sortarryr(char **s)
 	str[j--] = 0;
 	while (s[i])
 		str[i++] = s[j--];
+	free(s);
 	return (str);
 }
 

@@ -21,7 +21,7 @@ void			ft_display_all(char *str, char *flag, char *path)
 	else if (i == 5 && ft_strspn("R", flag) == 0)
 	{
 		i = 0;
-		printf("\n");
+		ft_printf("\n");
 	}
 	i++;
 	if (ft_strspn("l", flag) == 1)
