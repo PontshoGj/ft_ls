@@ -14,13 +14,11 @@
 
 char			*ftime(char *str)
 {
-	char		*filetime;
 	struct stat	filestat;
 
 	if (lstat(str, &filestat) < 0)
 		return (0);
-	filetime = ctime(&filestat.st_mtime);
-	return (filetime);
+	return (ctime(&filestat.st_mtime));
 }
 
 long			fsectime(char *str)

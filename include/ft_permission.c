@@ -25,7 +25,7 @@ char			*ft_permission(char *filename)
 	str[0] = ft_filetype(filename);
 	str[1] = (filestat.st_mode & S_IRUSR) ? 'r' : '-';
 	str[2] = (filestat.st_mode & S_IWUSR) ? 'w' : '-';
-	str[3] = (filestat.st_mode & S_IXUSR) ? 'x' : '-';
+	str[3] = ft_stb(filestat);
 	str[4] = (filestat.st_mode & S_IRGRP) ? 'r' : '-';
 	str[5] = (filestat.st_mode & S_IWGRP) ? 'w' : '-';
 	str[6] = (filestat.st_mode & S_IXGRP) ? 'x' : '-';

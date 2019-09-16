@@ -43,6 +43,7 @@ int		isfile(char *s);
 int		ft_islink(char *s);
 char	**ft_sortarry(char **s);
 char	**ft_sortarryr(char **s);
+char	**ft_sortarryr2(char **s);
 char	**ft_sortarryt(char **s, char *path);
 char	**dirlist(char *p);
 size_t	ft_dirnum(char *path);
@@ -56,4 +57,5 @@ long	fsectime(char *str);
 void	ft_longdisplay(char *path, char *flag);
 char	*ft_getlink(char *path);
 void	ft_freearry(char **s);
+char    ft_stb(struct stat filestat);
 #endif

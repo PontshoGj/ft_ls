@@ -73,6 +73,23 @@ char		**ft_sortarryr(char **s)
 	return (str);
 }
 
+char		**ft_sortarryr2(char **s)
+{
+	char	**str;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (s[j] != 0)
+		j++;
+	str = (char **)malloc(sizeof(char *) * (j + 1));
+	str[j--] = 0;
+	while (s[i])
+		str[i++] = s[j--];
+	return (str);
+}
+
 char		**ft_sortarry(char **s)
 {
 	char	*str;

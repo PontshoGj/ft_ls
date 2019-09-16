@@ -12,23 +12,18 @@
 
 #include "ft_ls.h"
 
-static int	checkfl(char *str)
+static void	chkfd(char **dir)
 {
-	char	s;
+	char 	*s;
+	int		i;
 
-	if (!(s = ft_isflag(str)))
-		return (1);
-	ft_printf("ft_ls: illegal option -- %c\nusage: ft_ls [-Ralrt] \
-			[file ...]\n", s);
-	exit(1);
-}
-
-static int	checkfiledir(char *s)
-{
-	if (isdir(s) || isfile(s))
-		return (1);
-	ft_printf("ls: %s: No such file or directory\n", s);
-	return (0);
+	i = 0;
+	s = 0;
+	if (!dir)
+		return ;
+	s = dir[0];
+	while (dir[i])
+		checkfiledir(dir[i++]);
 }
 
 static void	printdir(char **dir, char *flag)
@@ -36,28 +31,27 @@ static void	printdir(char **dir, char *flag)
 	int		i;
 
 	i = 0;
-	if (!*dir)
+	if (!dir)
 	{
 		ft_display_dir(".", flag);
 		return ;
 	}
-	ft_sortarry(dir);
-	while (dir[i])
+	dir = ft_sortarry(dir);
+	if (ft_strspn(flag, "rt"))
 	{
-		if (checkfiledir(dir[i]) == 0)
-			dir[i] = "NULL";
-		i++;
+		dir = ft_sortarryr2(dir);
 	}
-	i = 0;
+	chkfd(dir);
 	while (dir[i])
 	{
-		if (ft_strcmp(dir[i], "NULL"))
+		if (checkfiledir(dir[i]))
 			ft_display_dir(dir[i], flag);
 		i++;
 	}
+	ft_printf("\n");
 }
 
-void		ls(int argc, char **argv)
+static void		ls(int argc, char **argv)
 {
 	int		i;
 	int		j;

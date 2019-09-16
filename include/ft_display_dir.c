@@ -54,7 +54,7 @@ void			ft_display_dir(char *str, char *flag)
 	i = 0;
 	if (!j)
 		j = 0;
-	if ((ft_strspn("Rl", flag) && isdir(str)) || isfile(str))
+	if ((ft_strspn(flag, "Rl") && isdir(str)) || isfile(str))
 	{
 		prin(str, flag);
 		j++;
