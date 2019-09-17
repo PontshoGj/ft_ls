@@ -12,18 +12,54 @@
 
 #include "ft_ls.h"
 
-void			setugid(char *path)
+void			setugid(char *path, char *dirname)
 {
 	struct stat	filestat;
+	char *s;
 
-	if (lstat(path, &filestat) < 0)
+	s = ft_pathname(path, dirname);
+	if (lstat(s, &filestat) < 0)
 		return ;
-	printf("%d", filestat.st_mode & S_BLKSIZE);
-	printf("%d", filestat.st_mode & S_ISUID);
+	printf("%ld", (long)filestat.st_ino);
+	printf("%4lld%2s", filestat.st_blocks / 2, " "); //nedd to fix
+	printf("%s\n", dirname);
 }
 
-int				main(void)
+void		setgids(char *path, char *dirname)
 {
-	setugid(".");
+	struct stat	filestat;
+	char *s;
+
+	s = ft_pathname(path, dirname);
+	if (lstat(s, &filestat) < 0)
+		return ;
+	ft_printf("%ld  ", (long)filestat.st_ino);
+	ft_printf("%lld ", filestat.st_blocks / 2);
+	ft_printf("%s ", ft_permission(s));
+	ft_printf("%d ", ft_filelink(s));
+	ft_printf("%s ", ft_filetimes(s));
+	ft_printf("%s\n", path);
+}
+
+void	stickybit(char *path, char *dirname)
+{
+	char 	**arr;
+	int i;
+
+	i = 0;
+	arr = ft_arrydirlist(path, ' ');
+	while (arr[i])
+		setugid(path, arr[i++]);	
+}
+int				main(int ac, char **av)
+{
+	char *s;
+
+	s = av[1];
+	if (!s)
+		s = ".";
+	//setugid(s);
+	//setgids(s);
+	stickybit(s, s);
 	return (0);
 }
