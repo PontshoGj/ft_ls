@@ -6,42 +6,40 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 11:02:24 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/16 10:36:26 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/17 13:55:16 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void	chkfd(char **dir)
+static void		chkfd(char **dir)
 {
-	char 	*s;
-	int		i;
+	char		*s;
+	int			i;
 
 	i = 0;
 	s = 0;
-	if (!dir)
+	if (!*dir)
 		return ;
 	s = dir[0];
 	while (dir[i])
 		checkfiledir(dir[i++]);
 }
 
-static void	printdir(char **dir, char *flag)
+static void		printdir(char **dir, char *flag)
 {
-	int		i;
+	int			i;
 
 	i = 0;
-	if (!dir)
+	if (!*dir)
 	{
 		ft_display_dir(".", flag);
 		return ;
 	}
 	dir = ft_sortarry(dir);
 	if (ft_strspn(flag, "rt"))
-	{
 		dir = ft_sortarryr2(dir);
-	}
-	chkfd(dir);
+	//chkfd(dir);
 	while (dir[i])
 	{
 		if (checkfiledir(dir[i]))
@@ -53,10 +51,10 @@ static void	printdir(char **dir, char *flag)
 
 static void		ls(int argc, char **argv)
 {
-	int		i;
-	int		j;
-	char	*s;
-	char	*temp;
+	int			i;
+	int			j;
+	char		*s;
+	char		*temp;
 
 	i = 1;
 	j = 0;

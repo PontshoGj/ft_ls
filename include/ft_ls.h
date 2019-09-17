@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 10:54:42 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 10:55:36 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/17 13:55:46 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ long	fsectime(char *str);
 void	ft_longdisplay(char *path, char *flag);
 char	*ft_getlink(char *path);
 void	ft_freearry(char **s);
-char    ft_stb(struct stat filestat);
+char	ft_stb(struct stat filestat);
+int		checkfiledir(char *s);
+int		checkfl(char *str);
 #endif

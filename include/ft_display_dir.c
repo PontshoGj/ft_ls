@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 10:39:09 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/16 10:38:47 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/17 13:57:53 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void			ft_display_dir(char *str, char *flag)
 	i = 0;
 	if (!j)
 		j = 0;
-	if ((ft_strspn(flag, "Rl") && isdir(str)) || isfile(str))
+	if (((ft_strspn("l", flag) || ft_strspn("R", flag)) \
+		&& isdir(str)) || isfile(str))
 	{
 		prin(str, flag);
 		j++;
