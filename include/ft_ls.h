@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 10:54:42 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/18 15:27:27 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/18 17:32:12 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,6 @@ void	setgids(char *path, char *dirname);
 void	stickybit(char *path);
 char	*ft_filetimes2(char *str);
 int		chkvali(char *flag);
+void	swap(char **s, char **s2);
+int		freepath(char *s);
 #endif

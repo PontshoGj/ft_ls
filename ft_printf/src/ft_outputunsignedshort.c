@@ -45,7 +45,6 @@ void			ft_outputunsignedshort(va_list args, int space, char c)
 	long long	i;
 	short		j;
 
-	(void)space;
 	if (c == 'h')
 	{
 		i = va_arg(args, int);

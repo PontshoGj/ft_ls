@@ -11,7 +11,7 @@ SRC=include/ft_filesize.c include/ft_filetimes.c include/ft_filename.c include/f
 	include/ft_pathname.c include/ft_display_long.c include/ft_isdir.c include/ft_rec.c include/ft_isfile.c \
 	include/ft_islnk.c include/ft_sortarry.c include/ft_arrydirlist.c include/ft_dirnu.c include/ft_chksort.c \
 	include/ft_longdisplay.c include/ft_getlink.c include/ft_freearry.c include/ft_stb.c include/ft_checkfl.c \
-	include/ft_checkfiledir.c include/ft_setugid.c include/ft_chkvali.c \
+	include/ft_checkfiledir.c include/ft_setugid.c include/ft_chkvali.c include/ft_swap.c include/ft_freepath.c \
 
 OBJ=$(SRC:.c=.o)
 

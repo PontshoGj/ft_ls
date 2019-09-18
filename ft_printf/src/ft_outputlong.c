@@ -60,8 +60,6 @@ void			ft_outputlonghex(va_list args, int space, char hex, char c)
 {
 	long long	i;
 
-	(void)space;
-	(void)hex;
 	if (c == 'l')
 	{
 		i = va_arg(args, long);

@@ -12,91 +12,40 @@
 
 #include "ft_ls.h"
 
-void		swap(char **s, char **s2)
+char		*pat(char **path2, char *s, char *s2, char *path)
 {
-	char	*str;
-
-	str = *s;
-	*s = *s2;
-	*s2 = str;
+	*path2 = ft_pathname(path, s2);
+	return (ft_pathname(path, s));
 }
-
-/*char		**ft_sortarryt(char **s, char *path)
-{
-	char	*str;
-	char	*path1;
-	char	*path2;
-	size_t	i;
-	size_t	j;
-
-	str = 0;
-	i = 0;
-	j = 0;
-	while (s[j] != 0)
-	{
-		path1 = ft_pathname(path, s[j]);
-		while (s[i] != 0)
-		{
-			path2 = ft_pathname(path, s[i]);
-			if (fsectime(path1) > fsectime(path2))
-				swap(&s[j], &s[i]);
-			else if (fsectime(path1) == fsectime(path2))
-			{
-				if (ft_strcmp(s[j], s[i]))
-					swap(&s[i], &s[j]);
-			}
-			free(path2);
-			i++;
-		}
-		free(path1);
-		i = 0;
-		j++;
-	}
-	return (s);
-}*/
 
 char		**ft_sortarryt(char **s, char *path)
 {
-	char	*str;
 	char	*path1;
 	char	*path2;
 	size_t	i;
 	size_t	j;
 
-	str = 0;
 	i = 0;
 	j = 0;
-	//while (s[j] != 0)
-	//{
-	//	path1 = ft_pathname(path, s[j]);
-		while (s[i] != 0)
+	while (s[i] != 0 && (path2 = 0))
+	{
+		path1 = pat(&path2, s[i], s[j], path);
+		if (fsectime(path1) - fsectime(path2) > 0)
+			swap(&s[j], &s[i]);
+		else if (fsectime(path1) - fsectime(path2) == 0)
 		{
-			path1 = ft_pathname(path, s[i]);
-			path2 = ft_pathname(path, s[j]);
-			if (fsectime(path1) - fsectime(path2) > 0)
-				swap(&s[i], &s[j]);
-			else if (fsectime(path1) - fsectime(path2) == 0)
-			{
-				if ((fnanotime(path1) + fsectime(path1) - fnanotime(path2)) + fsectime(path1) > 0)
-					swap(&s[j], &s[i]);
-				//else if (ft_strcmp(s[j], s[i]) < 0)
-				//	swap(&s[j], &s[i]);
-			}
-			free(path2);
-			if (!(j < ft_strlen(s[i])))
-			{
-				i++;
-				j = -1;
-			}
-			j++;
+			if ((fnanotime(path1) - fnanotime(path2)) > 0)
+				swap(&s[j], &s[i]);
 		}
-		free(path1);
-		//i = 0;
-		//j++;
-	//}
+		if (!(j < ft_strlen(s[i])) && freepath(path2) && freepath(path1))
+		{
+			i++;
+			j = -1;
+		}
+		j++;
+	}
 	return (s);
 }
-
 
 char		**ft_sortarryr(char **s)
 {

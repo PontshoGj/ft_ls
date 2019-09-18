@@ -23,6 +23,7 @@ void				setugid(char *path, char *dirname)
 	ft_printf("%ld", (long)filestat.st_ino);
 	ft_printf("%4lld%2s", filestat.st_blocks / 2, " ");
 	ft_printf("%s\t", dirname);
+	free(s);
 }
 
 void				setgids(char *path, char *dirname)
@@ -30,6 +31,7 @@ void				setgids(char *path, char *dirname)
 	struct stat		filestat;
 	struct group	*grp;
 	char			*s;
+	char			*temp;
 
 	s = ft_pathname(path, dirname);
 	if (lstat(s, &filestat) < 0)
@@ -38,12 +40,17 @@ void				setgids(char *path, char *dirname)
 		return ;
 	ft_printf("%ld  ", (long)filestat.st_ino);
 	ft_printf("%lld ", filestat.st_blocks / 2);
-	ft_printf("%s ", ft_permission(s));
+	temp = ft_permission(s);
+	ft_printf("%s ", temp);
+	free(temp);
 	ft_printf("%d ", ft_filelink(s));
 	ft_printf("%s ", grp->gr_name);
 	ft_printf("%d ", ft_filesize(s));
-	ft_printf("%s ", ft_filetimes2(s));
+	temp = ft_filetimes2(s);
+	ft_printf("%s ", temp);
+	free(temp);
 	ft_printf("%s\n", path);
+	free(s);
 }
 
 void				stickybit(char *path)
@@ -59,5 +66,6 @@ void				stickybit(char *path)
 			setugid(path, arr[i]);
 		i++;
 	}
+	ft_freearry(arr);
 	ft_printf("\n");
 }

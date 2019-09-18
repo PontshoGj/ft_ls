@@ -34,9 +34,10 @@ static void		printdir(char **dir, char *flag)
 		ft_display_dir(".", flag);
 		return ;
 	}
-	dir = ft_sortarry(dir);
-	if (ft_strspn(flag, "rt"))
+	if (ft_strspn(flag, "t"))
 		dir = ft_sortarryr2(dir);
+	if (ft_strspn(flag, "r"))
+		dir = ft_sortarryt(dir, ".");
 	chkfd(dir);
 	while (dir[i])
 	{
@@ -79,6 +80,5 @@ static void		ls(int argc, char **argv)
 int				main(int ac, char **av)
 {
 	ls(ac, av);
-	//sleep(20);
 	return (0);
 }
