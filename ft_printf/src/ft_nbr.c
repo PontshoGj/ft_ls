@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lenlong_base.c                                  :+:      :+:    :+:   */
+/*   ft_nbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 13:47:28 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 13:47:56 by pmogwere         ###   ########.fr       */
+/*   Created: 2019/09/14 12:12:43 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/09/14 12:13:17 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-long long		ft_lenlong_base(long long n, int base)
+void		ft_nbr(int n, int num)
 {
-	long long	count;
+	char	*s;
 
-	count = 0;
+	s = ft_itoa(n);
 	if (n < 0)
-	{
-		n *= -1;
-		count++;
-	}
-	if (n == 0)
-		return (1);
-	while (n > 0)
-	{
-		n = n / base;
-		count++;
-	}
-	return (count);
+		num++;
+	while (*s && num-- > 0)
+		ft_putchar(*s++);
 }

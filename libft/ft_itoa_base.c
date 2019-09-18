@@ -6,13 +6,13 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/16 14:14:17 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/08/16 14:16:02 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/14 13:45:31 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*bigrsmallHex(char s)
+char		*bigrsmallhex(char s)
 {
 	if (s == 'X')
 		return ("0123456789ABCDEF");
@@ -26,10 +26,9 @@ char		*ft_itoa_base(int value, int base, char h)
 	int		neg;
 	size_t	len;
 
-	s = bigrsmallHex(h);
+	s = bigrsmallhex(h);
 	len = ft_intlen_base(value, base);
 	neg = 1;
-	
 	if (value < 0)
 	{
 		neg *= -1;

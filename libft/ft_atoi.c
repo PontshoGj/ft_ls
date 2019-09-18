@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 14:22:53 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/06/27 12:22:30 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/14 13:50:27 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int		calcnum(char *str)
 
 static int		chkdigi(char *str)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	while (str[i] != '\0')

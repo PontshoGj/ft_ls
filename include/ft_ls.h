@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 10:54:42 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/17 13:55:46 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/18 15:27:27 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,9 @@ void	ft_freearry(char **s);
 char	ft_stb(struct stat filestat);
 int		checkfiledir(char *s);
 int		checkfl(char *str);
+void	setugid(char *path, char *dirname);
+void	setgids(char *path, char *dirname);
+void	stickybit(char *path);
+char	*ft_filetimes2(char *str);
+int		chkvali(char *flag);
 #endif

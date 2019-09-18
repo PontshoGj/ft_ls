@@ -45,6 +45,12 @@ static void	ft_recd(char **str, char *s, char *flag)
 			ft_printf("\n%s:\n", path);
 			ft_displayrec(path, flag);
 		}
+		else if (ft_strspn("a", flag) == 1 && ft_strcmp(str[i], ".") != 0 \
+		&& ft_strcmp(str[i], "..") != 0 && isdir(path))
+		{
+			ft_printf("\n%s:\n", path);
+			ft_displayrec(path, flag);
+		}
 		i++;
 		free(path);
 	}

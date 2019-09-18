@@ -14,16 +14,14 @@
 
 static void		chkfd(char **dir)
 {
-	char		*s;
-	int			i;
+	char		**s;
 
-	i = 0;
-	s = 0;
+	s = dir;
 	if (!*dir)
 		return ;
-	s = dir[0];
-	while (dir[i])
-		checkfiledir(dir[i++]);
+	checkfiledir(*s);
+	if (*s++)
+		chkfd(s);
 }
 
 static void		printdir(char **dir, char *flag)
@@ -39,10 +37,10 @@ static void		printdir(char **dir, char *flag)
 	dir = ft_sortarry(dir);
 	if (ft_strspn(flag, "rt"))
 		dir = ft_sortarryr2(dir);
-	//chkfd(dir);
+	chkfd(dir);
 	while (dir[i])
 	{
-		if (checkfiledir(dir[i]))
+		if (isdir(dir[i]) || isfile(dir[i]))
 			ft_display_dir(dir[i], flag);
 		i++;
 	}
@@ -78,7 +76,7 @@ static void		ls(int argc, char **argv)
 	free(s);
 }
 
-int			main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	ls(ac, av);
 	//sleep(20);

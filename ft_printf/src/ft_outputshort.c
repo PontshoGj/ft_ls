@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lenlong_base.c                                  :+:      :+:    :+:   */
+/*   ft_outputshort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 13:47:28 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 13:47:56 by pmogwere         ###   ########.fr       */
+/*   Created: 2019/09/14 12:36:25 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/09/14 12:37:38 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-long long		ft_lenlong_base(long long n, int base)
+void			ft_outputshort(va_list args, int space, char c)
 {
-	long long	count;
+	long long	i;
 
-	count = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		count++;
-	}
-	if (n == 0)
-		return (1);
-	while (n > 0)
-	{
-		n = n / base;
-		count++;
-	}
-	return (count);
+	(void)space;
+	if (c == 'l')
+		i = va_arg(args, int);
+	else
+		i = va_arg(args, long long);
+	ft_putnbrlong(i);
 }

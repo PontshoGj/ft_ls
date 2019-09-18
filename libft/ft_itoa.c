@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 14:37:33 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/06/20 12:17:01 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/14 13:51:05 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static char	*lmin(int n)
 
 static char	*ft_assing(int n)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*str;
 
 	i = ft_intlen(n);

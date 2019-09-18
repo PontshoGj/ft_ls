@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lenlong_base.c                                  :+:      :+:    :+:   */
+/*   ft_addplus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 13:47:28 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 13:47:56 by pmogwere         ###   ########.fr       */
+/*   Created: 2019/09/14 12:08:22 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/09/14 12:09:47 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-long long		ft_lenlong_base(long long n, int base)
+void		ft_addplus(char **s, va_list args)
 {
-	long long	count;
+	char	*str;
 
-	count = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		count++;
-	}
-	if (n == 0)
-		return (1);
-	while (n > 0)
-	{
-		n = n / base;
-		count++;
-	}
-	return (count);
+	str = ft_strtrim(ft_strsub(*s, 0, 2));
+	(ft_strspn("di", str)) ? outint(str[0], args, 0, ' ') : 0;
+	(ft_strspn("c", str)) ? outint(str[1], args, 0, ' ') : 0;
+	*s += 1;
 }

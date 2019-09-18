@@ -39,7 +39,10 @@ char		ft_isflag(char *s)
 	i = 1;
 	if (s[0] == '-')
 	{
-		if (ft_strlen(s) > 1)
+		if (ft_strcmp(s, "-stickybit") == 0 || ft_strcmp(s, "-setuid") == 0 ||\
+		ft_strcmp(s, "-setgid") == 0)
+			return (0);
+		else if (ft_strlen(s) > 1)
 		{
 			while (s[i])
 			{

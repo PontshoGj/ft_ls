@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lenlong_base.c                                  :+:      :+:    :+:   */
+/*   ft_chkvali.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 13:47:28 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 13:47:56 by pmogwere         ###   ########.fr       */
+/*   Created: 2019/09/18 15:25:46 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/09/18 15:26:07 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_ls.h"
 
-long long		ft_lenlong_base(long long n, int base)
+int	chkvali(char *flag)
 {
-	long long	count;
-
-	count = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		count++;
-	}
-	if (n == 0)
+	if (ft_strcmp(flag, "stickybit") == 0 ||\
+		ft_strcmp(flag, "setuid") == 0 || ft_strcmp(flag, "setgid") == 0)
 		return (1);
-	while (n > 0)
-	{
-		n = n / base;
-		count++;
-	}
-	return (count);
+	return (0);
 }

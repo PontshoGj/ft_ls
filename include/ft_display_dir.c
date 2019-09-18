@@ -43,6 +43,15 @@ static void		prin(char *str, char *flag)
 		ft_longdisplay(str, flag);
 	else if (isfile(str))
 		ft_display_all(str, flag, ".");
+	else if (ft_strcmp(flag, "stickybit") == 0)
+		stickybit(str);
+	else if (ft_strcmp(flag, "setuid") == 0)
+	{
+		setugid(".", str);
+		ft_printf("\n");
+	}
+	else if (ft_strcmp(flag, "setgid") == 0)
+		setgids(".", str);
 }
 
 void			ft_display_dir(char *str, char *flag)
@@ -55,7 +64,7 @@ void			ft_display_dir(char *str, char *flag)
 	if (!j)
 		j = 0;
 	if (((ft_strspn("l", flag) || ft_strspn("R", flag)) \
-		&& isdir(str)) || isfile(str))
+		&& isdir(str)) || isfile(str) || chkvali(flag))
 	{
 		prin(str, flag);
 		j++;
