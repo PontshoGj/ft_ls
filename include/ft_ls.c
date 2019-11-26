@@ -34,8 +34,8 @@ static void		printdir(char **dir, char *flag)
 		ft_display_dir(".", flag);
 		return ;
 	}
-	if (ft_strspn(flag, "t"))
-		dir = ft_sortarryr2(dir);
+	if (ft_strspn( "t", flag))
+		dir = ft_sortarryt(dir, ".");
 	if (ft_strspn(flag, "r"))
 		dir = ft_sortarryt(dir, ".");
 	chkfd(dir);

@@ -27,22 +27,22 @@ char		**ft_sortarryt(char **s, char *path)
 
 	i = 0;
 	j = 0;
-	while (s[i] != 0 && (path2 = 0))
+	while (s[i] != 0)
 	{
-		path1 = pat(&path2, s[i], s[j], path);
-		if (fsectime(path1) - fsectime(path2) > 0)
-			swap(&s[j], &s[i]);
-		else if (fsectime(path1) - fsectime(path2) == 0)
+		while (s[j] != 0)
 		{
-			if ((fnanotime(path1) - fnanotime(path2)) > 0)
+			path1 = pat(&path2, s[i], s[j], path);
+			if (fsectime(path1) - fsectime(path2) > 0)
 				swap(&s[j], &s[i]);
+			else if (fsectime(path1) - fsectime(path2) == 0)
+			{
+				if ((fnanotime(path1) - fnanotime(path2)) > 0)
+					swap(&s[j], &s[i]);
+			}
+			j++;
 		}
-		if (!(j < ft_strlen(s[i])) && freepath(path2) && freepath(path1))
-		{
-			i++;
-			j = -1;
-		}
-		j++;
+		j = 0;
+		i++;
 	}
 	return (s);
 }
