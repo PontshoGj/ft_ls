@@ -15,8 +15,10 @@
 static void	ft_printlong2(char **s, va_list args, int space)
 {
 	char	*str;
+	char	*strhold;
 
-	str = ft_strtrim(ft_strsub(*s, 0, 3));
+	strhold = ft_strsub(*s, 0, 3);
+	str = ft_strtrim(strhold);
 	if (ft_strspn(str, "lld") == 3 || ft_strspn(str, "lli") == 3)
 	{
 		*s += 2;
@@ -37,13 +39,17 @@ static void	ft_printlong2(char **s, va_list args, int space)
 		*s += 2;
 		ft_outputunsignedlonghex(args, space, *s[0], str[2]);
 	}
+	free(str);
+	free(strhold);
 }
 
 void		ft_printlong(char **s, va_list args, int space)
 {
 	char	*str;
+	char	*strhold;
 
-	str = ft_strtrim(ft_strsub(*s, 0, 3));
+	strhold = ft_strsub(*s, 0, 3);
+	str = ft_strtrim(strhold);
 	if (ft_strspn(str, "lldxXiou") == 3)
 		ft_printlong2(s, args, space);
 	else if (ft_strspn("ld", str) == 2 || ft_strspn("li", str) == 2)
@@ -66,4 +72,6 @@ void		ft_printlong(char **s, va_list args, int space)
 		*s += 1;
 		ft_outputunsignedlonghex(args, space, *s[0], str[2]);
 	}
+	free(str);
+	free(strhold);
 }

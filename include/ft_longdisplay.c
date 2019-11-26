@@ -36,7 +36,7 @@ void			block(char *str, char *flag)
 		free((char *)temp);
 	}
 	ft_freearry(arrlist);
-	ft_printf("total %lld\n", filetime);
+	ft_printf("total %d\n", filetime);
 }
 
 void			ft_longdisplay(char *path, char *flag)
