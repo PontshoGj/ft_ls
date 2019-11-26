@@ -80,6 +80,5 @@ static void		ls(int argc, char **argv)
 int				main(int ac, char **av)
 {
 	ls(ac, av);
-	sleep(10);
 	return (0);
 }
