@@ -47,8 +47,8 @@ char			*ft_filetimes2(char *str)
 	char		*sub;
 
 	strarray = ft_strsplit(ftime(str), ' ');
-	temp = ft_strcat(strarray[2], " ");
-	strtime = ft_strjoin(temp, strarray[1]);
+	temp = ft_strcat(strarray[1], " ");
+	strtime = ft_strjoin(temp, strarray[2]);
 	strtime = ft_strcat(strtime, " ");
 	temp = strtime;
 	sub = ft_strsub(strarray[3], 0, 5);

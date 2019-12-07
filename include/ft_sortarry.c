@@ -40,6 +40,8 @@ char		**ft_sortarryt(char **s, char *path)
 					swap(&s[j], &s[i]);
 			}
 			j++;
+			free(path1);
+			free(path2);
 		}
 		j = 0;
 		i++;
